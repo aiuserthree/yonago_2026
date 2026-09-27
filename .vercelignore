@@ -1,3 +1,5 @@
 build.py
 README.md
 .claude
+.env*
+.vercel

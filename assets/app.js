@@ -28,16 +28,40 @@
     dd.forEach(function (el) { el.textContent = text; });
   }
 
-  // 사진 갤러리 카운터
-  document.querySelectorAll(".gallery").forEach(function (g) {
-    var track = g.querySelector(".track");
-    var count = g.querySelector(".count");
+  // 사진 캐러셀: 스와이프, 화살표, 점, 키보드
+  document.querySelectorAll(".carousel").forEach(function (c) {
+    var track = c.querySelector(".track");
+    var count = c.querySelector(".count");
+    var prev = c.querySelector(".nav.prev");
+    var next = c.querySelector(".nav.next");
+    var dots = c.querySelectorAll(".dot");
     var n = track.children.length;
-    function update() {
-      var i = Math.round(track.scrollLeft / track.clientWidth) + 1;
-      count.textContent = Math.min(i, n) + " / " + n;
+    function index() { return Math.round(track.scrollLeft / (track.clientWidth || 1)); }
+    function go(i) {
+      i = Math.max(0, Math.min(n - 1, i));
+      track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" });
     }
-    track.addEventListener("scroll", function () { window.requestAnimationFrame(update); }, { passive: true });
+    function update() {
+      var i = Math.min(index(), n - 1);
+      if (count) count.textContent = (i + 1) + " / " + n;
+      if (prev) prev.disabled = i === 0;
+      if (next) next.disabled = i === n - 1;
+      dots.forEach(function (d, k) { d.setAttribute("aria-current", k === i ? "true" : "false"); });
+    }
+    if (prev) prev.addEventListener("click", function () { go(index() - 1); });
+    if (next) next.addEventListener("click", function () { go(index() + 1); });
+    dots.forEach(function (d, k) { d.addEventListener("click", function () { go(k); }); });
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(index() + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(index() - 1); }
+    });
+    var ticking = false;
+    track.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () { update(); ticking = false; });
+    }, { passive: true });
+    window.addEventListener("resize", update);
     update();
   });
 
@@ -106,7 +130,21 @@
         render();
       });
     });
-    rateInput.addEventListener("input", render);
+    var edited = false;
+    rateInput.addEventListener("input", function () { edited = true; render(); });
     render();
+
+    // 최신 엔화 환율 불러오기 (실패하면 기본값 유지)
+    var src = document.getElementById("rate-src");
+    fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/jpy.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) {
+        var per100 = d && d.jpy && d.jpy.krw ? d.jpy.krw * 100 : 0;
+        if (!per100 || edited) return;
+        rateInput.value = per100.toFixed(1);
+        if (src) src.textContent = d.date + " 기준 환율 (100엔 ≈ " + per100.toFixed(1) + "원) · 자동 반영";
+        render();
+      })
+      .catch(function () {});
   }
 })();

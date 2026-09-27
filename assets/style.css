@@ -241,17 +241,11 @@ main { display: flex; flex-direction: column; gap: 24px; padding: 16px 16px 8px;
 
 /* 숙소 카드 */
 .stay-card { text-decoration: none; display: block; }
-.stay-card .photo { aspect-ratio: 16 / 10; background: var(--surface-2); position: relative; }
-.stay-card .photo img { width: 100%; height: 100%; object-fit: cover; }
-.stay-card .photo .tag {
-  position: absolute; left: 12px; top: 12px;
-  padding: 4px 10px; border-radius: 999px;
-  background: rgba(15, 25, 38, .72); color: #fff; font-size: 12px; font-weight: 600;
-}
+.stay-card > a.card-body { text-decoration: none; }
 .stay-card h3 { font-family: var(--body); font-size: 17px; font-weight: 700; }
 .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .score {
-  display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2); white-space: nowrap;
 }
 .score b {
   font-family: var(--num); font-size: 13px; color: #fff; background: var(--sea);
@@ -278,16 +272,49 @@ main { display: flex; flex-direction: column; gap: 24px; padding: 16px 16px 8px;
 .combo .total .amt { font-family: var(--num); font-size: 22px; font-weight: 600; color: var(--accent); }
 .combo.pick { outline: 2px solid var(--accent); outline-offset: -2px; }
 
-/* 갤러리 */
-.gallery { margin: 0 -16px; position: relative; }
-.gallery .track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-.gallery .track::-webkit-scrollbar { display: none; }
-.gallery .track img { flex: 0 0 100%; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; scroll-snap-align: start; background: var(--surface-2); }
-.gallery .count {
-  position: absolute; right: 12px; bottom: 12px;
+/* 사진 캐러셀 */
+.carousel { position: relative; background: var(--surface-2); overflow: hidden; }
+.carousel .track {
+  display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.carousel .track::-webkit-scrollbar { display: none; }
+.carousel .track img { flex: 0 0 100%; width: 100%; object-fit: cover; scroll-snap-align: start; scroll-snap-stop: always; }
+.carousel.gallery { margin: 0 -16px; }
+.carousel.gallery .track img { aspect-ratio: 4 / 3; }
+.carousel.photo .track img { aspect-ratio: 16 / 10; }
+.carousel .tag {
+  position: absolute; left: 12px; top: 12px;
+  padding: 4px 10px; border-radius: 999px;
+  background: rgba(15, 25, 38, .72); color: #fff; font-size: 12px; font-weight: 600;
+}
+.carousel .count {
+  position: absolute; right: 12px; top: 12px;
   padding: 3px 10px; border-radius: 999px; font-size: 12px;
   background: rgba(15, 25, 38, .72); color: #fff; font-family: var(--num);
 }
+.carousel .nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 36px; height: 36px; border-radius: 50%; border: 0;
+  display: grid; place-items: center; cursor: pointer;
+  background: rgba(255, 255, 255, .88); color: #15202b;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+  transition: opacity .15s ease;
+}
+.carousel .nav svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.carousel .nav.prev { left: 10px; }
+.carousel .nav.next { right: 10px; }
+.carousel .nav[disabled] { opacity: 0; pointer-events: none; }
+.carousel .dots {
+  position: absolute; left: 0; right: 0; bottom: 10px;
+  display: flex; justify-content: center; gap: 6px; pointer-events: none;
+}
+.carousel .dot {
+  width: 6px; height: 6px; padding: 0; border: 0; border-radius: 3px;
+  background: rgba(255, 255, 255, .55); box-shadow: 0 0 0 1px rgba(0, 0, 0, .15); pointer-events: auto; cursor: pointer;
+  transition: width .2s ease, background .2s ease;
+}
+.carousel .dot[aria-current="true"] { width: 18px; background: #fff; }
 .credit { font-size: 11px; color: var(--ink-3); padding: 6px 0 0; }
 .credit a { color: var(--ink-3); }
 

@@ -27,8 +27,9 @@
       <button type="button" data-combo="fuga" aria-pressed="false">후가</button>
     </div>
     <label class="row small" for="rate" style="margin-top:4px"><span class="muted">환율 (100엔당 원)</span>
-      <input id="rate" type="number" inputmode="decimal" value="930" min="500" max="2000" step="1"
+      <input id="rate" type="number" inputmode="decimal" value="861" min="500" max="2000" step="0.1"
         style="width:96px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);padding:0 10px;font:600 15px var(--num);text-align:right"></label>
+    <p class="tiny" id="rate-src">2026-09-27 기준 환율 (100엔 ≈ 861원)</p>
   </div>
   <div class="card">
     <div class="table-wrap" style="padding:4px 16px">
@@ -46,7 +47,7 @@
     </table>
     </div>
   </div>
-  <p class="tiny">석식·조식은 두 숙소 모두 포함이라 따로 넣지 않았어요. 환율은 직접 바꿔 넣을 수 있어요.</p>
+  <p class="tiny">석식·조식은 두 숙소 모두 포함이라 따로 넣지 않았어요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
 </section>
 
 </main>

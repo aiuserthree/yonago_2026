@@ -89,6 +89,8 @@ HOTELS = {
             "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/742891531.jpg?k=781dae3efc475bf1a5aa6ebb4e596c02432f2e1ebe76e9fb97cc8793f56efa72&o=&s=600x",
             "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/542563946.jpg?k=93562a2175cc21ec9c9c07466eafc252487f0519b7634f5f3f4fc6a31009976c&o=&s=600x",
             "https://pix8.agoda.net/hotelImages/58297545/0/29b60c1bf5d0dd0924beeaffea7e92a4.jpeg?va=1&ce=2&s=600x",
+            "https://pix8.agoda.net/property/58297545/0/ad37b8493d11530c8c72a98cb8aaa240.jpeg?va=1&ce=3&s=600x",
+            "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/742891533.jpg?k=a322c2b424937dbe051be74d02071d00dd96e29ccfa0d91ecbf371bc71651381&o=&s=600x",
         ],
         "agoda": "https://www.agoda.com/ko-kr/yonago-universal-hotel-station-h11458945/hotel/yonago-jp.html?checkIn=2026-11-30&los=1&adults=1&rooms=1",
     },
@@ -120,6 +122,7 @@ HOTELS = {
             "https://pix8.agoda.net/hotelImages/290145/1024534661/fadb7e370217d9272fe5cf81ff189487.jpg?va=1&ce=0&s=1024x",
             "https://pix8.agoda.net/hotelImages/290145/0/abeaad59ae440e0c6ac19a79fdfb087e.jpeg?va=1&ce=0&s=600x",
             "https://pix8.agoda.net/hotelImages/9077665/796593522/c2b7957a8a6f58058d2432bb8400971d.jpg?va=1&ce=0&s=1024x",
+            "https://pix8.agoda.net/hotelImages/9077665/796593610/942f51aa16b639c8df71e9abc1d0d1c7.jpg?va=1&ce=0&s=1024x",
         ],
         "agoda": "https://www.agoda.com/ko-kr/kaike-grand-hotel-tensui_3/hotel/yonago-jp.html?checkIn=2026-12-01&los=1&adults=1&rooms=1",
     },
@@ -151,6 +154,7 @@ HOTELS = {
             "https://pix8.agoda.net/property/15635178/0/c9ed54c59dcec8f6548425868777d998.jpeg?va=1&ce=3&s=600x",
             "https://pix8.agoda.net/property/15635178/0/69e83a1e734a2d41d86198e4a0ea974d.jpeg?va=1&ce=3&s=600x",
             "https://pix8.agoda.net/property/15635178/612954456/30b5ca46ebe16bfb5f52b100ef6922cf.jpeg?va=1&s=1024x",
+            "https://pix8.agoda.net/property/15635178/884440437/2de3dd1d9ffc22768cb1a80031cbd5fe.jpeg?va=1&s=1024x",
         ],
         "agoda": "https://www.agoda.com/ko-kr/ikoitei-kikuman-h15635178/hotel/yonago-jp.html?checkIn=2026-12-01&los=1&adults=1&rooms=1",
     },
@@ -184,6 +188,8 @@ HOTELS = {
             "https://pix8.agoda.net/hotelImages/10569725/806986537/5f81f588461cc242a0f8c79017457591.jpg?va=1&ce=3&s=1024x",
             "https://pix8.agoda.net/hotelImages/10569725/806986540/032978827c53b5f479fd819f27e77563.jpg?va=1&ce=3&s=1024x",
             "https://pix8.agoda.net/hotelImages/10569725/806986537/965d868338ca29240b73570f85b4a61d.jpg?va=1&ce=2&s=1024x",
+            "https://pix8.agoda.net/hotelImages/10569725/806986540/4c6dacbe40aacbbbd0da4c5e30077d34.jpg?va=1&ce=3&s=1024x",
+            "https://pix8.agoda.net/hotelImages/10569725/806986536/02726504d7c3b85b92447b7cb478ed60.jpg?va=1&ce=3&s=1024x",
         ],
         "agoda": "https://www.agoda.com/ko-kr/kaike-no-yado-yururi/hotel/yonago-jp.html?checkIn=2026-12-01&los=1&adults=1&rooms=1",
     },
@@ -227,22 +233,40 @@ def combo_card(key, tag, desc, pick):
 </article>"""
 
 
+def carousel(h, cls="", tag=""):
+    """사진 여러 장을 넘겨보는 캐러셀 (스와이프 · 화살표 · 점)."""
+    n = len(h["photos"])
+    slides = "".join(img(p, f"{h['name']} 사진 {i + 1}/{n}") for i, p in enumerate(h["photos"]))
+    dots = "".join(f'<button type="button" class="dot" aria-label="{i + 1}번째 사진"></button>' for i in range(n))
+    tag_html = f'<span class="tag">{escape(tag)}</span>' if tag else ""
+    return f"""<div class="carousel {cls}" aria-roledescription="carousel" aria-label="{escape(h['name'])} 사진">
+  <div class="track" tabindex="0">{slides}</div>{tag_html}
+  <button type="button" class="nav prev" aria-label="이전 사진"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
+  <button type="button" class="nav next" aria-label="다음 사진"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+  <span class="count num">1 / {n}</span>
+  <div class="dots">{dots}</div>
+</div>"""
+
+
 def stay_card(key):
     h = HOTELS[key]
     return f"""
-<a class="card stay-card" href="/stay-{key}">
-  <div class="photo">{img(h['photos'][0], h['name'])}<span class="tag">{escape(h['night'])}</span></div>
-  <div class="card-body">
-    <div>
-      <div class="tiny">{escape(h['kind'])}</div>
-      <h3>{escape(h['name'])}</h3>
+<article class="card stay-card">
+  {carousel(h, "photo", h['night'])}
+  <a class="card-body" href="/stay-{key}">
+    <div class="row">
+      <div>
+        <div class="tiny">{escape(h['kind'])}</div>
+        <h3>{escape(h['name'])}</h3>
+      </div>
+      {CHEV}
     </div>
     <div class="row">
       <span class="score"><b>{h['score']}</b>{h['label']} · 후기 {h['reviews']:,}건</span>
       <div class="price"><div class="amt">{won(h['price'])}</div><div class="per">1박 · 1인 · {escape(h['meal'])}</div></div>
     </div>
-  </div>
-</a>"""
+  </a>
+</article>"""
 
 
 # ---------------------------------------------------------------- 홈
@@ -415,7 +439,6 @@ page("stay.html", "요나고 숙소", stay, "stay", header="숙소")
 
 def hotel_page(key):
     h = HOTELS[key]
-    photos = "".join(img(p, f"{h['name']} 사진 {i + 1}") for i, p in enumerate(h["photos"]))
     bars = "".join(
         f'<div class="bar"><span>{n}</span><span class="track"><span class="fill" style="width:{v * 10:.0f}%;display:block"></span></span><span class="v">{v:.1f}</span></div>'
         for n, v in h["bars"])
@@ -423,7 +446,7 @@ def hotel_page(key):
     cons = "".join(f'<li class="minus"><span class="mk">−</span><span>{escape(p)}</span></li>' for p in h["cons"])
     body = f"""
 <div>
-  <div class="gallery"><div class="track">{photos}</div><span class="count num">1 / {len(h['photos'])}</span></div>
+  {carousel(h, "gallery")}
   <p class="credit">사진: <a href="{escape(h['agoda'])}" target="_blank" rel="noopener">Agoda 숙소 페이지</a></p>
 </div>
 <section class="section">
@@ -554,8 +577,9 @@ budget = """
       <button type="button" data-combo="fuga" aria-pressed="false">후가</button>
     </div>
     <label class="row small" for="rate" style="margin-top:4px"><span class="muted">환율 (100엔당 원)</span>
-      <input id="rate" type="number" inputmode="decimal" value="930" min="500" max="2000" step="1"
+      <input id="rate" type="number" inputmode="decimal" value="861" min="500" max="2000" step="0.1"
         style="width:96px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);padding:0 10px;font:600 15px var(--num);text-align:right"></label>
+    <p class="tiny" id="rate-src">2026-09-27 기준 환율 (100엔 ≈ 861원)</p>
   </div>
   <div class="card">
     <div class="table-wrap" style="padding:4px 16px">
@@ -573,7 +597,7 @@ budget = """
     </table>
     </div>
   </div>
-  <p class="tiny">석식·조식은 두 숙소 모두 포함이라 따로 넣지 않았어요. 환율은 직접 바꿔 넣을 수 있어요.</p>
+  <p class="tiny">석식·조식은 두 숙소 모두 포함이라 따로 넣지 않았어요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
 </section>
 """
 page("budget.html", "요나고 예산", budget, "money", header="예산")

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#22406a">
+<title>요나고 예산</title>
+<meta name="description" content="요나고 2박 3일 여행 일정 · 숙소 · 교통 · 예산 (2026.11.30–12.2)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="app">
+<header class="topbar"><span class="icon-btn ghost"></span><div class="title">예산</div><span class="icon-btn ghost"></span></header>
+<main>
+
+<section class="section" id="budget">
+  <div><div class="eyebrow">1인 기준</div><h2 style="font-size:24px;margin-top:4px">여행 예산</h2></div>
+  <div class="card card-body">
+    <div class="tiny">2박째 숙소</div>
+    <div class="seg" role="group" aria-label="2박째 숙소 선택">
+      <button type="button" data-combo="tensui" aria-pressed="false">텐스이</button>
+      <button type="button" data-combo="kikuman" aria-pressed="true">기쿠만</button>
+      <button type="button" data-combo="fuga" aria-pressed="false">후가</button>
+    </div>
+    <label class="row small" for="rate" style="margin-top:4px"><span class="muted">환율 (100엔당 원)</span>
+      <input id="rate" type="number" inputmode="decimal" value="930" min="500" max="2000" step="1"
+        style="width:96px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);padding:0 10px;font:600 15px var(--num);text-align:right"></label>
+  </div>
+  <div class="card">
+    <div class="table-wrap" style="padding:4px 16px">
+    <table class="money">
+      <tr><td>항공권 왕복 (에어서울)</td><td>₩203,491</td></tr>
+      <tr><td id="stay-name">숙소 2박</td><td id="stay-amt">-</td></tr>
+      <tr><td>공항 연계버스 (도착 ¥640 + 귀국 ¥500)</td><td data-yen="1140">-</td></tr>
+      <tr><td>JR 요나고↔야스기 왕복</td><td data-yen="400">-</td></tr>
+      <tr><td>가이케선 버스</td><td data-yen="300">-</td></tr>
+      <tr><td>아다치 미술관 (여권 할인)</td><td data-yen="2400">-</td></tr>
+      <tr><td>점심 2번 · 간식 · 라멘</td><td data-yen="5000">-</td></tr>
+      <tr><td class="muted">현지 지출 합계</td><td id="yen-sum" class="muted">-</td></tr>
+      <tr class="sum"><td>1인 합계</td><td id="total">-</td></tr>
+      <tr><td class="muted">2명 (각자 1실 기준)</td><td id="total-2" class="muted">-</td></tr>
+    </table>
+    </div>
+  </div>
+  <p class="tiny">석식·조식은 두 숙소 모두 포함이라 따로 넣지 않았어요. 환율은 직접 바꿔 넣을 수 있어요.</p>
+</section>
+
+</main>
+<footer class="foot">요금은 2026년 9월 27일 Agoda 조회 기준이며 바뀔 수 있습니다. 숙소 사진·평점 출처: Agoda.</footer>
+</div>
+<nav class="tabbar" data-active="money" aria-label="주요 메뉴"></nav>
+<script src="/assets/app.js"></script>
+</body>
+</html>

@@ -355,7 +355,7 @@ day1 = day_tabs("day1") + f"""
     {tl("21:00", "야식: 규코쓰(소뼈) 라멘", "역 앞 라멘 야마토(ラーメン大和), 한 그릇 ¥550, 22:45까지")}
   </ol>
   </div>
-  <div class="note info"><span class="mk">i</span><span>연계버스 시각은 하계 시간표 기준이에요. 동계 시간표는 아직 게시되지 않았으니 출발 전 요나고 공항 사이트에서 확인하세요. 버스를 놓치면 일반 공항버스(약 25분, ¥640)나 택시를 타면 돼요.</span></div>
+  <div class="note info"><span class="mk">i</span><span>연계버스는 서울편(월·수·목·금·일) 도착에 맞춰 운행하고, 비행기가 늦으면 출발도 늦춰져요. 놓치면 JR 요나고공항역(터미널에서 도보 약 5분) 16:12 열차로 요나고역까지 약 30분(¥240), 택시는 약 30분·약 ¥5,500이에요.</span></div>
   <a class="card stay-card" href="/stay-universal" style="display:grid;grid-template-columns:96px 1fr;align-items:center">
     <div style="height:96px">{img(HOTELS['universal']['photos'][0], '요나고 유니버설 호텔', '')}</div>
     <div class="card-body"><div class="tiny">오늘 숙소</div><strong>요나고 유니버설 호텔</strong><span class="small muted">조식·석식 포함 · {won(35081)}</span></div>
@@ -524,15 +524,15 @@ transport = """
       <dt>귀국일</dt><dd>요나고역 13:35 → 가이케 온천 13:55 → 공항 14:20</dd>
       <dt>요금</dt><dd>요나고역 ¥640 · 가이케 온천 ¥500 · 현금</dd>
     </dl>
-    <p class="tiny">하계 시간표 기준. 항공편 도착에 따라 출발이 달라질 수 있어요.</p>
+    <p class="tiny">요나고 공항 공식 시간표 기준. 서울편이 결항하면 운행하지 않고, 만차면 못 탈 수 있어요.</p>
   </div>
   <div class="card card-body">
-    <div class="row"><strong>일반 공항버스</strong><span class="chip">약 25분</span></div>
-    <p class="small muted">요나고역까지 공항 셔틀 ¥640, 노선버스 ¥600.</p>
+    <div class="row"><strong>JR 사카이선 열차</strong><span class="chip">약 30분 · ¥240</span></div>
+    <p class="small muted">터미널에서 JR 요나고공항역까지 도보 약 5분. 도착일 오후 요나고행은 14:53, 16:12, 17:03, 17:52 (평일). 14:53은 입국 심사 때문에 타기 어려워요.</p>
   </div>
   <div class="card card-body">
     <div class="row"><strong>택시</strong><span class="chip">대략</span></div>
-    <p class="small muted">가이케 온천 → 공항 약 20분 · 약 ¥4,500<br>가이케 온천 → 요나고역 약 15분 · 약 ¥2,200</p>
+    <p class="small muted">공항 → 요나고역 약 30분 · 약 ¥5,500 (공항 공식 안내)<br>가이케 온천 → 공항 약 20분 · 약 ¥4,500<br>가이케 온천 → 요나고역 약 15분 · 약 ¥2,200<br>공항 택시는 대수가 적어 미리 예약을 권해요. 日ノ丸ハイヤー 0859-22-3231</p>
   </div>
 </section>
 

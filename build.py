@@ -45,7 +45,7 @@ def page(filename, title, body, tab, back=None, header=None):
 <main>
 {body}
 </main>
-<footer class="foot">요금은 2026년 9월 27일 Agoda 조회 기준이며 바뀔 수 있습니다. 숙소 사진·평점 출처: Agoda.</footer>
+<footer class="foot">요금은 2026년 9월 28일 Agoda 조회 기준이며 바뀔 수 있습니다. 숙소 사진·평점 출처: Agoda.</footer>
 </div>
 <nav class="tabbar" data-active="{tab}" aria-label="주요 메뉴"></nav>
 <script src="/assets/app.js"></script>
@@ -65,11 +65,11 @@ HOTELS = {
         "name": "요나고 유니버설 호텔",
         "jp": "米子ユニバーサルホテル",
         "kind": "비즈니스 호텔 · 3성급",
-        "night": "1박째 · 11/30(월)",
-        "price": 35081,
+        "night": "2박째 · 12/1(화)",
+        "price": 34962,
         "room": "싱글룸 A (금연) · 15㎡ · 싱글베드 1개",
         "meal": "조식·석식 무료 플랜",
-        "cancel": "11/30 전까지 무료 취소 (11/28 자동 결제)",
+        "cancel": "무료 취소 가능 (기한은 예약 화면에서 확인)",
         "addr": "121 Mannōchō, Yonago (米子市万能町)",
         "access": "요나고역 북口에서 도보 약 4분(280m)",
         "score": 7.5, "reviews": 3417, "label": "좋음",
@@ -92,17 +92,17 @@ HOTELS = {
             "https://pix8.agoda.net/property/58297545/0/ad37b8493d11530c8c72a98cb8aaa240.jpeg?va=1&ce=3&s=600x",
             "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/742891533.jpg?k=a322c2b424937dbe051be74d02071d00dd96e29ccfa0d91ecbf371bc71651381&o=&s=600x",
         ],
-        "agoda": "https://www.agoda.com/ko-kr/yonago-universal-hotel-station-h11458945/hotel/yonago-jp.html?checkIn=2026-11-30&los=1&adults=1&rooms=1",
+        "agoda": "https://www.agoda.com/ko-kr/yonago-universal-hotel-station-h11458945/hotel/yonago-jp.html?checkIn=2026-12-01&los=1&adults=1&rooms=1",
     },
     "tensui": {
         "name": "가이케 그랜드 호텔 텐스이",
         "jp": "皆生グランドホテル天水",
         "kind": "해변 온천 호텔 · 3.5성급",
-        "night": "2박째 · 12/1(화)",
-        "price": 110626,
+        "night": "다른 후보 · 11/30(월)",
+        "price": 67370,
         "room": "1인 이용 객실",
-        "meal": "조식·석식 포함",
-        "cancel": "무료 취소 가능 (기한은 예약 화면에서 확인)",
+        "meal": "조식 포함",
+        "cancel": "11/26 전까지 무료 취소",
         "addr": "4-18-45 Kaike Onsen, Yonago",
         "access": "가이케 온천 해변 바로 앞 · 요나고역에서 버스 약 20분",
         "score": 7.8, "reviews": 593, "label": "매우 좋음",
@@ -124,17 +124,17 @@ HOTELS = {
             "https://pix8.agoda.net/hotelImages/9077665/796593522/c2b7957a8a6f58058d2432bb8400971d.jpg?va=1&ce=0&s=1024x",
             "https://pix8.agoda.net/hotelImages/9077665/796593610/942f51aa16b639c8df71e9abc1d0d1c7.jpg?va=1&ce=0&s=1024x",
         ],
-        "agoda": "https://www.agoda.com/ko-kr/kaike-grand-hotel-tensui_3/hotel/yonago-jp.html?checkIn=2026-12-01&los=1&adults=1&rooms=1",
+        "agoda": "https://www.agoda.com/ko-kr/kaike-grand-hotel-tensui_3/hotel/yonago-jp.html?checkIn=2026-11-30&los=1&adults=1&rooms=1",
     },
     "kikuman": {
         "name": "이코이테이 기쿠만",
         "jp": "いこい亭 菊萬",
         "kind": "온천 료칸 · 4성급",
-        "night": "2박째 · 12/1(화)",
-        "price": 138742,
-        "room": "일본식 다다미 객실 (금연)",
-        "meal": "조식·석식 포함",
-        "cancel": "11/27 전까지 무료 취소 (11/25 자동 결제)",
+        "night": "다른 후보 · 11/30(월)",
+        "price": 62048,
+        "room": "일본식 다다미 객실 (금연) · 2명이 한 방이면 2식 포함 ₩303,997",
+        "meal": "식사 없음",
+        "cancel": "11/26 전까지 무료 취소",
         "addr": "4-27-1 Kaike Onsen, Yonago",
         "access": "가이케 온천가 · 요나고역에서 버스 약 20분",
         "score": 8.7, "reviews": 122, "label": "우수",
@@ -156,19 +156,19 @@ HOTELS = {
             "https://pix8.agoda.net/property/15635178/612954456/30b5ca46ebe16bfb5f52b100ef6922cf.jpeg?va=1&s=1024x",
             "https://pix8.agoda.net/property/15635178/884440437/2de3dd1d9ffc22768cb1a80031cbd5fe.jpeg?va=1&s=1024x",
         ],
-        "agoda": "https://www.agoda.com/ko-kr/ikoitei-kikuman-h15635178/hotel/yonago-jp.html?checkIn=2026-12-01&los=1&adults=1&rooms=1",
+        "agoda": "https://www.agoda.com/ko-kr/ikoitei-kikuman-h15635178/hotel/yonago-jp.html?checkIn=2026-11-30&los=1&adults=1&rooms=1",
     },
     "fuga": {
         "name": "가이케 후가",
         "jp": "皆生 風雅",
         "kind": "정원 료칸 · 3성급",
-        "night": "2박째 · 12/1(화)",
-        "price": 157167,
-        "room": "1인 이용 일본식 객실",
-        "meal": "조식·석식 포함",
-        "cancel": "무료 취소 가능 (기한은 예약 화면에서 확인)",
+        "night": "1박째 · 11/30(월)",
+        "price": 119246,
+        "room": "1인 1실 · 일본식 객실",
+        "meal": "조식 포함",
+        "cancel": "11/26 전까지 무료 취소",
         "addr": "3-16-1 Kaike Onsen, Yonago",
-        "access": "가이케 온천 신사 옆 · 요나고역 무료 송영(사전 예약)",
+        "access": "가이케 온천 신사 옆 · 연계버스 가이케 온천 정류장에서 하차 · 요나고역 무료 송영(사전 예약)",
         "score": 8.4, "reviews": 440, "label": "우수",
         "bars": [("직원 태도", 8.9), ("가격 대비", 8.7), ("청결도", 8.6), ("편의시설", 8.5)],
         "pros": [
@@ -179,7 +179,7 @@ HOTELS = {
             "첫 입실 때 직원이 관내 시설을 함께 돌며 안내해 줘요.",
         ],
         "cons": [
-            "체크인이 늦으면 석식이 제공되지 않고 환불도 안 돼요. 도착 시간을 미리 알려야 해요.",
+            "이번 예약은 조식만 포함이라 첫날 저녁은 온천가 식당에서 따로 먹어요. 도착 예정 시간(16:30 전후)은 미리 알려 두세요.",
             "흡연 가능 객실 정책이라 냄새에 민감하면 금연 요청을 남기는 게 좋아요.",
         ],
         "photos": [
@@ -191,15 +191,13 @@ HOTELS = {
             "https://pix8.agoda.net/hotelImages/10569725/806986540/4c6dacbe40aacbbbd0da4c5e30077d34.jpg?va=1&ce=3&s=1024x",
             "https://pix8.agoda.net/hotelImages/10569725/806986536/02726504d7c3b85b92447b7cb478ed60.jpg?va=1&ce=3&s=1024x",
         ],
-        "agoda": "https://www.agoda.com/ko-kr/kaike-no-yado-yururi/hotel/yonago-jp.html?checkIn=2026-12-01&los=1&adults=1&rooms=1",
+        "agoda": "https://www.agoda.com/ko-kr/kaike-no-yado-yururi/hotel/yonago-jp.html?checkIn=2026-11-30&los=1&adults=1&rooms=1",
     },
 }
 
-COMBOS = [
-    ("tensui", "가성비", "온천 호텔에서 바다 보며 쉬기", False),
-    ("kikuman", "추천", "평점과 식사 만족도가 가장 높아요", True),
-    ("fuga", "분위기", "사케·유카타·정원이 있는 료칸 경험", False),
-]
+HOTELS = {k: HOTELS[k] for k in ("fuga", "universal", "tensui", "kikuman")}
+PLAN = ("fuga", "universal")  # 1박째, 2박째 (확정)
+ALTS = ("tensui", "kikuman")  # 1박째 다른 후보
 
 
 def img(src, alt, cls=""):
@@ -208,28 +206,27 @@ def img(src, alt, cls=""):
             'referrerpolicy="no-referrer">')
 
 
-def combo_card(key, tag, desc, pick):
-    u, h = HOTELS["universal"], HOTELS[key]
-    total = u["price"] + h["price"]
-    chip = "accent" if pick else "sea"
+def plan_card():
+    n1, n2 = HOTELS[PLAN[0]], HOTELS[PLAN[1]]
+    total = n1["price"] + n2["price"]
     return f"""
-<article class="card combo{' pick' if pick else ''}">
+<article class="card combo pick">
   <div class="combo-top">
     <div>
-      <span class="chip {chip}">{tag}</span>
-      <h3 style="margin-top:8px">유니버설 + {escape(h['name'])}</h3>
-      <p class="small muted">{escape(desc)}</p>
+      <span class="chip accent">확정</span>
+      <h3 style="margin-top:8px">료칸 1박 + 역 앞 호텔 1박</h3>
+      <p class="small muted">첫날은 온천 료칸에서 쉬고, 둘째 날은 역 앞에서 편하게</p>
     </div>
   </div>
   <div class="nights">
-    <a class="night" href="/stay-universal">{img(u['photos'][0], u['name'])}
-      <div><div class="when">1박 · 11/30 월</div><div class="nm">{escape(u['name'])}</div></div>
-      <div class="p">{won(u['price'])}</div></a>
-    <a class="night" href="/stay-{key}">{img(h['photos'][0], h['name'])}
-      <div><div class="when">2박 · 12/1 화</div><div class="nm">{escape(h['name'])}</div></div>
-      <div class="p">{won(h['price'])}</div></a>
+    <a class="night" href="/stay-{PLAN[0]}">{img(n1['photos'][0], n1['name'])}
+      <div><div class="when">1박 · 11/30 월 · {escape(n1['meal'])}</div><div class="nm">{escape(n1['name'])}</div></div>
+      <div class="p">{won(n1['price'])}</div></a>
+    <a class="night" href="/stay-{PLAN[1]}">{img(n2['photos'][0], n2['name'])}
+      <div><div class="when">2박 · 12/1 화 · {escape(n2['meal'])}</div><div class="nm">{escape(n2['name'])}</div></div>
+      <div class="p">{won(n2['price'])}</div></a>
   </div>
-  <div class="total"><span class="small muted">2박 합계 · 1인 · 세금 포함</span><span class="amt">{won(total)}</span></div>
+  <div class="total"><span class="small muted">2박 합계 · 1인 1실 · 세금 포함</span><span class="amt">{won(total)}</span></div>
 </article>"""
 
 
@@ -281,31 +278,29 @@ home = f"""
 
 <div class="stats">
   <div class="stat"><span class="label">항공</span><span class="value">에어서울</span><span class="tiny">직항 1시간 30분</span></div>
-  <div class="stat"><span class="label">1박</span><span class="value">역 앞 호텔</span><span class="tiny">요나고 유니버설</span></div>
-  <div class="stat"><span class="label">2박</span><span class="value">온천 료칸</span><span class="tiny">가이케 온천</span></div>
+  <div class="stat"><span class="label">1박</span><span class="value">온천 료칸</span><span class="tiny">가이케 후가</span></div>
+  <div class="stat"><span class="label">2박</span><span class="value">역 앞 호텔</span><span class="tiny">요나고 유니버설</span></div>
 </div>
 
 <section class="section">
   <div class="section-head"><h2>일정</h2><a href="/day1">자세히</a></div>
   <div class="card">
     <a class="day-link" href="/day1"><div class="day-badge"><span class="d">DAY</span><span class="n">1</span></div>
-      <div><h3>도착 · 요나고역 앞</h3><p>11/30 월 · 14:50 도착, 호텔 석식, 규코쓰 라멘</p></div>{CHEV}</a>
+      <div><h3>도착 · 가이케 온천 료칸</h3><p>11/30 월 · 14:50 도착, 해변 일몰, 온천가 저녁</p></div>{CHEV}</a>
   </div>
   <div class="card">
     <a class="day-link" href="/day2"><div class="day-badge"><span class="d">DAY</span><span class="n">2</span></div>
-      <div><h3>아다치 미술관 · 가이케 온천</h3><p>12/1 화 · 일본 최고 정원, 료칸 가이세키</p></div>{CHEV}</a>
+      <div><h3>아다치 미술관 · 요나고역 앞</h3><p>12/1 화 · 일본 최고 정원, 호텔 석식, 규코쓰 라멘</p></div>{CHEV}</a>
   </div>
   <div class="card">
     <a class="day-link" href="/day3"><div class="day-badge"><span class="d">DAY</span><span class="n">3</span></div>
-      <div><h3>온천 아침 · 귀국</h3><p>12/2 수 · 해변 산책, 15:50 출발</p></div>{CHEV}</a>
+      <div><h3>마쓰에성 · 귀국</h3><p>12/2 수 · 오전 마쓰에성, 13:35 역 앞 버스, 15:50 출발</p></div>{CHEV}</a>
   </div>
 </section>
 
 <section class="section">
-  <div class="section-head"><h2>추천 숙소 조합</h2><a href="/stay">전체 보기</a></div>
-  <div class="hscroll">
-    {''.join(f'<div style="width:86%">{combo_card(*c)}</div>' for c in COMBOS)}
-  </div>
+  <div class="section-head"><h2>숙소</h2><a href="/stay">자세히</a></div>
+  {plan_card()}
 </section>
 
 <section class="section">
@@ -341,53 +336,57 @@ def tl(time, title, text="", kind=""):
             f'<div class="c"><h3>{title}</h3>{f"<p>{text}</p>" if text else ""}</div></li>')
 
 
+def today_stay(key, label):
+    h = HOTELS[key]
+    return f"""<a class="card stay-card" href="/stay-{key}" style="display:grid;grid-template-columns:96px 1fr;align-items:center">
+    <div style="height:96px">{img(h['photos'][0], h['name'])}</div>
+    <div class="card-body"><div class="tiny">{label}</div><strong>{escape(h['name'])}</strong><span class="small muted">{escape(h['meal'])} · {won(h['price'])}</span></div>
+  </a>"""
+
+
 day1 = day_tabs("day1") + f"""
 <section class="section">
-  <div><div class="eyebrow">DAY 1 · 11월 30일 월요일</div><h2 style="font-size:24px;margin-top:4px">도착하고, 역 앞에서 쉬기</h2></div>
+  <div><div class="eyebrow">DAY 1 · 11월 30일 월요일</div><h2 style="font-size:24px;margin-top:4px">도착해서 곧장 온천 마을로</h2></div>
   <div class="card card-body">
   <ol class="timeline">
     {tl("11:00", "인천공항 제1터미널 도착", "에어서울 카운터에서 체크인. 여권 유효기간을 확인하세요.")}
     {tl("13:20", "RS471 인천 출발", "비행 1시간 30분", "key")}
     {tl("14:50", "요나고 기타로 공항 도착", "입국 심사 후 7번 승강장으로")}
-    {tl("15:50", "인천 노선 연계버스 탑승", "현지 이름: ソウル便連絡バス · 공항 7번 승강장 → 가이케 온천 → 요나고역 북口 16:35 · ¥640 · 현금", "move")}
-    {tl("16:45", "요나고 유니버설 호텔 체크인", "역에서 도보 약 4분. 싱글룸 A (금연)", "key")}
-    {tl("18:00", "호텔 석식", "무료 석식 플랜 포함. 옥상 대욕장은 식후에")}
-    {tl("21:00", "야식: 규코쓰(소뼈) 라멘", "역 앞 라멘 야마토(ラーメン大和), 한 그릇 ¥550, 22:45까지")}
+    {tl("15:50", "인천 노선 연계버스 탑승", "현지 이름: ソウル便連絡バス · 공항 7번 승강장 → 가이케 온천 16:15 하차 · ¥500 · 현금", "move")}
+    {tl("16:30", "가이케 후가 체크인", "정류장에서 료칸까지 거리는 미리 지도로 확인하세요. 입실 때 직원이 관내 시설을 안내해 줘요.", "key")}
+    {tl("16:45", "가이케 해변 일몰 산책", "11월 말 일몰은 오후 5시 전후. 료칸에서 해변까지 가까워요")}
+    {tl("18:00", "저녁: 온천가 식당", "이자카야 엔야, 食彩 シュウ(대게), 야키토리 아오이야 등. 11/30은 모두 영업하는 요일이에요")}
+    {tl("20:00", "료칸 온천 · 무료 사케", "밤 9시까지 사케와 음료 무료, 유카타 골라 입기, 노천탕")}
   </ol>
   </div>
-  <div class="note info"><span class="mk">i</span><span>인천 노선 연계버스는 에어서울 인천↔요나고 편(월·수·목·금·일)에 맞춰 현지 버스 회사(히노마루 버스)가 운행하고, 비행기가 늦으면 출발도 늦춰져요. 놓치면 JR 요나고공항역(터미널에서 도보 약 5분) 16:12 열차로 요나고역까지 약 30분(¥240), 택시는 약 30분·약 ¥5,500이에요.</span></div>
-  <a class="card stay-card" href="/stay-universal" style="display:grid;grid-template-columns:96px 1fr;align-items:center">
-    <div style="height:96px">{img(HOTELS['universal']['photos'][0], '요나고 유니버설 호텔', '')}</div>
-    <div class="card-body"><div class="tiny">오늘 숙소</div><strong>요나고 유니버설 호텔</strong><span class="small muted">조식·석식 포함 · {won(35081)}</span></div>
-  </a>
+  <div class="note info"><span class="mk">i</span><span>인천 노선 연계버스는 에어서울 인천↔요나고 편(월·수·목·금·일)에 맞춰 현지 버스 회사(히노마루 버스)가 운행하고, 비행기가 늦으면 출발도 늦춰져요. 놓치면 택시로 가이케 온천까지 약 20분·약 ¥4,500이에요.</span></div>
+  {today_stay("fuga", "오늘 숙소 · 1인 1실")}
 </section>
 """
 page("day1.html", "요나고 DAY 1", day1, "plan", back="/", header="일정")
 
 day2 = day_tabs("day2") + f"""
 <section class="section">
-  <div><div class="eyebrow">DAY 2 · 12월 1일 화요일</div><h2 style="font-size:24px;margin-top:4px">정원 한 폭, 그리고 온천</h2></div>
+  <div><div class="eyebrow">DAY 2 · 12월 1일 화요일</div><h2 style="font-size:24px;margin-top:4px">정원 한 폭, 그리고 역 앞 호텔</h2></div>
   <div class="card card-body">
   <ol class="timeline">
-    {tl("07:30", "호텔 조식 뷔페", "")}
-    {tl("09:00", "체크아웃 · 짐 맡기기", "호텔 수하물 보관 서비스 이용")}
-    {tl("09:30", "JR 요나고 → 야스기", "산인본선 보통열차 약 8분 · ¥200", "move")}
-    {tl("10:15", "야스기역 무료 셔틀", "미술관까지 약 20분 · 선착순 25명", "move")}
-    {tl("10:40", "아다치 미술관", "미국 정원 전문지 선정 일본 정원 1위를 이어온 곳. 12월 초는 늦단풍이 남아 있을 수 있어요. 성인 ¥2,500, 여권 제시 시 ¥2,400", "key")}
-    {tl("13:00", "셔틀 → 야스기역 → 요나고", "미술관 발 13:00 / 13:30 셔틀", "move")}
-    {tl("13:45", "점심: 규코쓰 라멘", "니쿠곳초 요나고역 앞점(肉ごっつお, 15:00까지) 또는 라멘 야마토")}
-    {tl("15:00", "짐 찾고 가이케 온천으로", "요나고역 → 가이케선 버스 약 20분 · 약 ¥300 (1,000엔권까지 환전)", "move")}
-    {tl("15:30", "료칸 체크인", "석식 시간을 미리 정해 두세요", "key")}
-    {tl("16:30", "가이케 해변 일몰 산책", "12월 초 일몰은 오후 5시 전후")}
-    {tl("18:00", "료칸 석식 · 온천", "대게(마쓰바가니) 시즌이 11/6부터 시작돼요")}
+    {tl("07:00", "아침 온천", "체크아웃 전 노천탕 한 번 더")}
+    {tl("08:00", "료칸 조식", "후기에서 특히 맛있다고 꼽히는 조식")}
+    {tl("09:30", "체크아웃 → 요나고역", "가이케선 버스 약 20분 · 약 ¥300. 후가의 요나고역 무료 송영(사전 예약)도 있어요", "move")}
+    {tl("10:00", "유니버설 호텔에 짐 맡기기", "역에서 도보 약 4분. 체크인 전 수하물 보관")}
+    {tl("10:30", "JR 요나고 → 야스기", "산인본선 보통열차 약 8분 · ¥200", "move")}
+    {tl("11:05", "야스기역 무료 셔틀", "미술관까지 약 20분 · 선착순 25명 (다음 편 11:30)", "move")}
+    {tl("11:30", "아다치 미술관", "미국 정원 전문지 선정 일본 정원 1위를 이어온 곳. 12월 초는 늦단풍이 남아 있을 수 있어요. 성인 ¥2,500, 여권 제시 시 ¥2,400", "key")}
+    {tl("14:00", "셔틀 → 야스기역 → 요나고", "미술관 발 14:00 / 14:30 셔틀", "move")}
+    {tl("15:00", "늦은 점심 · 역 앞 구경", "니쿠곳초(肉ごっつお, 15:00까지)는 빠듯하니 역 주변 카페나 이온몰도 좋아요")}
+    {tl("16:00", "요나고 유니버설 호텔 체크인", "싱글룸 A (금연)", "key")}
+    {tl("18:00", "호텔 석식", "무료 석식 플랜 포함. 옥상 대욕장은 식후에")}
+    {tl("21:00", "야식: 규코쓰(소뼈) 라멘", "역 앞 라멘 야마토(ラーメン大和), 한 그릇 ¥550, 22:45까지")}
   </ol>
   </div>
+  {today_stay("universal", "오늘 숙소 · 1인 1실")}
   <div class="section-head"><h2>다른 코스로 바꾸려면</h2></div>
   <div class="list">
-    <div class="card card-body">
-      <div class="row"><strong>마쓰에성</strong><span class="chip">JR 약 30분 · ¥510</span></div>
-      <p class="small muted">현존 천수각 중 하나인 국보 성. 마쓰에역에서 레이크라인 버스 약 10분(¥250). 천수각 8:30–17:00, 성인 ¥1,200.</p>
-    </div>
     <div class="card card-body">
       <div class="row"><strong>미즈키 시게루 로드</strong><span class="chip">JR 약 45분 · ¥330</span></div>
       <p class="small muted">요괴 동상이 늘어선 사카이미나토 거리. 기타로 래핑 열차가 다녀요. 기념관 9:30–17:00, ¥1,000.</p>
@@ -399,21 +398,24 @@ page("day2.html", "요나고 DAY 2", day2, "plan", back="/", header="일정")
 
 day3 = day_tabs("day3") + f"""
 <section class="section">
-  <div><div class="eyebrow">DAY 3 · 12월 2일 수요일</div><h2 style="font-size:24px;margin-top:4px">온천 아침, 천천히 공항으로</h2></div>
+  <div><div class="eyebrow">DAY 3 · 12월 2일 수요일</div><h2 style="font-size:24px;margin-top:4px">마쓰에성 한 바퀴, 역 앞에서 공항으로</h2></div>
   <div class="card card-body">
   <ol class="timeline">
-    {tl("07:00", "아침 온천", "체크아웃 전 한 번 더")}
-    {tl("08:00", "료칸 조식", "")}
-    {tl("10:00", "체크아웃", "짐은 프런트에 맡기기", "key")}
-    {tl("10:30", "가이케 온천가 산책", "해변 산책로, 가이케 온천 신사, 도코엔(東光園) 정원")}
-    {tl("12:00", "점심", "온천가 근처에서 가볍게")}
-    {tl("13:55", "인천 노선 연계버스 탑승", "현지 이름: ソウル便連絡バス · 가이케 온천 → 공항 14:20 · ¥500 · 현금. 택시는 약 20분, 약 ¥4,500", "move")}
+    {tl("07:30", "호텔 조식 뷔페", "")}
+    {tl("08:30", "체크아웃 · 짐 맡기기", "호텔 수하물 보관 서비스 이용", "key")}
+    {tl("09:00", "JR 요나고 → 마쓰에", "산인본선 보통열차 약 30분 · ¥510. 열차 시간은 전날 확인하세요", "move")}
+    {tl("09:40", "레이크라인 버스 → 마쓰에성", "마쓰에역 7번 승강장, 약 10분 · ¥250", "move")}
+    {tl("10:00", "마쓰에성 천수각", "현존 천수각 중 하나인 국보 성. 8:30–17:00, 성인 ¥1,200")}
+    {tl("11:30", "마쓰에 → 요나고", "버스 + JR, 약 50분", "move")}
+    {tl("12:30", "점심: 규코쓰 라멘", "라멘 야마토 또는 니쿠곳초 요나고역 앞점 (둘 다 수요일 영업)")}
+    {tl("13:20", "호텔에서 짐 찾기", "")}
+    {tl("13:35", "인천 노선 연계버스 탑승", "현지 이름: ソウル便連絡バス · 요나고역 북口 7번 → 공항 14:20 · ¥640 · 현금", "move")}
     {tl("14:20", "요나고 공항 도착", "출국 수속, 기념품")}
     {tl("15:50", "RS472 요나고 출발", "", "key")}
     {tl("17:40", "인천 도착", "")}
   </ol>
   </div>
-  <div class="note"><span class="mk">!</span><span>연계버스는 만차면 못 탈 수 있고, 결항 시 운행하지 않아요. 짐이 많거나 여유 있게 가려면 료칸에 택시를 불러 달라고 하세요.</span></div>
+  <div class="note"><span class="mk">!</span><span>연계버스는 만차면 못 탈 수 있고, 결항 시 운행하지 않아요. 놓치면 JR 사카이선으로 요나고공항역까지 약 30분(¥240)이나 택시 약 30분·약 ¥5,500이에요. 마쓰에에서 늦어질 것 같으면 성 관람을 줄이세요.</span></div>
 </section>
 """
 page("day3.html", "요나고 DAY 3", day3, "plan", back="/", header="일정")
@@ -422,16 +424,18 @@ page("day3.html", "요나고 DAY 3", day3, "plan", back="/", header="일정")
 # ---------------------------------------------------------------- 숙소 목록
 stay = f"""
 <section class="section">
-  <div><div class="eyebrow">1박은 역 앞, 1박은 온천</div><h2 style="font-size:24px;margin-top:4px">추천 숙소 조합</h2>
-  <p class="small muted" style="margin-top:6px">1인 1실 · 세금 포함 · 2026년 9월 27일 Agoda 요금</p></div>
-  <div class="list">{''.join(combo_card(*c) for c in COMBOS)}</div>
+  <div><div class="eyebrow">1박은 온천 료칸, 1박은 역 앞</div><h2 style="font-size:24px;margin-top:4px">확정한 숙소</h2>
+  <p class="small muted" style="margin-top:6px">1인 1실 · 세금 포함 · 2026년 9월 28일 Agoda 요금</p></div>
+  {plan_card()}
+  <div class="list">{''.join(stay_card(k) for k in PLAN)}</div>
 </section>
 <section class="section">
-  <div class="section-head"><h2>숙소 한눈에 보기</h2></div>
-  <div class="list">{''.join(stay_card(k) for k in HOTELS)}</div>
+  <div class="section-head"><h2>11/30 다른 료칸 후보</h2></div>
+  <p class="small muted">11/30 밤에 1인 조식·석식 포함 요금은 카스이테이(₩477,040)뿐이었어요.</p>
+  <div class="list">{''.join(stay_card(k) for k in ALTS)}</div>
 </section>
 <section class="section">
-  <div class="note info"><span class="mk">i</span><span>APA 제휴 호텔(요나고 시티가든즈 호텔)도 이 날짜에 빈방이 있어요. 싱글 기준 11/30 ¥13,500 · 12/1 ¥5,500이며 식사는 없어요. APA 공식 사이트에서 예약할 수 있어요.</span></div>
+  <div class="note info"><span class="mk">i</span><span>APA 제휴 호텔(요나고 시티가든즈 호텔)도 12/1에 빈방이 있어요. 싱글 기준 ¥5,500이며 식사는 없어요. APA 공식 사이트에서 예약할 수 있어요.</span></div>
 </section>
 """
 page("stay.html", "요나고 숙소", stay, "stay", header="숙소")
@@ -521,9 +525,9 @@ transport = """
     <div class="row"><strong>인천 노선 연계버스</strong><span class="chip accent">추천</span></div>
     <p class="small muted">현지 정식 이름은 국제선(서울편) 연락버스(国際線 ソウル便連絡バス)예요. 에어서울 인천↔요나고 편 시간에 맞춰 히노마루 버스가 운행해요. 정류장 안내판에서는 「ソウル便」을 찾으세요.</p>
     <dl class="kv">
-      <dt>도착일</dt><dd>공항 7번 15:50 → 가이케 온천 16:15 → 요나고역 북口 16:35</dd>
-      <dt>귀국일</dt><dd>요나고역 13:35 → 가이케 온천 13:55 → 공항 14:20</dd>
-      <dt>요금</dt><dd>요나고역 ¥640 · 가이케 온천 ¥500 · 현금</dd>
+      <dt>도착일</dt><dd>공항 7번 15:50 → <b>가이케 온천 16:15 하차</b> → 요나고역 북口 16:35</dd>
+      <dt>귀국일</dt><dd><b>요나고역 북口 7번 13:35 승차</b> → 가이케 온천 13:55 → 공항 14:20</dd>
+      <dt>요금</dt><dd>우리 일정은 도착일 ¥500 + 귀국일 ¥640 · 현금</dd>
     </dl>
     <p class="tiny">요나고 공항 공식 시간표 기준. 인천 노선 항공편이 결항하면 운행하지 않고, 만차면 못 탈 수 있어요.</p>
   </div>
@@ -571,13 +575,7 @@ budget = """
 <section class="section" id="budget">
   <div><div class="eyebrow">1인 기준</div><h2 style="font-size:24px;margin-top:4px">여행 예산</h2></div>
   <div class="card card-body">
-    <div class="tiny">2박째 숙소</div>
-    <div class="seg" role="group" aria-label="2박째 숙소 선택">
-      <button type="button" data-combo="tensui" aria-pressed="false">텐스이</button>
-      <button type="button" data-combo="kikuman" aria-pressed="true">기쿠만</button>
-      <button type="button" data-combo="fuga" aria-pressed="false">후가</button>
-    </div>
-    <label class="row small" for="rate" style="margin-top:4px"><span class="muted">환율 (100엔당 원)</span>
+    <label class="row small" for="rate"><span class="muted">환율 (100엔당 원)</span>
       <input id="rate" type="number" inputmode="decimal" value="861" min="500" max="2000" step="0.1"
         style="width:96px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);padding:0 10px;font:600 15px var(--num);text-align:right"></label>
     <p class="tiny" id="rate-src">2026-09-27 기준 환율 (100엔 ≈ 861원)</p>
@@ -586,11 +584,14 @@ budget = """
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
       <tr><td>항공권 왕복 (에어서울)</td><td>₩203,491</td></tr>
-      <tr><td id="stay-name">숙소 2박</td><td id="stay-amt">-</td></tr>
-      <tr><td>공항 연계버스 (도착 ¥640 + 귀국 ¥500)</td><td data-yen="1140">-</td></tr>
+      <tr><td>숙소 2박 (후가 조식 + 유니버설 2식)</td><td id="stay-amt" data-won="154208">₩154,208</td></tr>
+      <tr><td>공항 연계버스 (도착 가이케 ¥500 + 귀국 요나고역 ¥640)</td><td data-yen="1140">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복</td><td data-yen="400">-</td></tr>
-      <tr><td>가이케선 버스</td><td data-yen="300">-</td></tr>
+      <tr><td>가이케 온천 → 요나고역 버스</td><td data-yen="300">-</td></tr>
+      <tr><td>마쓰에 왕복 (JR + 레이크라인 버스)</td><td data-yen="1520">-</td></tr>
+      <tr><td>마쓰에성 천수각</td><td data-yen="1200">-</td></tr>
       <tr><td>아다치 미술관 (여권 할인)</td><td data-yen="2400">-</td></tr>
+      <tr><td>첫날 저녁 (온천가 외식)</td><td data-yen="3500">-</td></tr>
       <tr><td>점심 2번 · 간식 · 라멘</td><td data-yen="5000">-</td></tr>
       <tr><td class="muted">현지 지출 합계</td><td id="yen-sum" class="muted">-</td></tr>
       <tr class="sum"><td>1인 합계</td><td id="total">-</td></tr>
@@ -598,7 +599,7 @@ budget = """
     </table>
     </div>
   </div>
-  <p class="tiny">석식·조식은 두 숙소 모두 포함이라 따로 넣지 않았어요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
+  <p class="tiny">후가는 조식만, 유니버설은 조식·석식이 포함이라 첫날 저녁만 따로 넣었어요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
 </section>
 """
 page("budget.html", "요나고 예산", budget, "money", header="예산")
@@ -608,6 +609,7 @@ page("budget.html", "요나고 예산", budget, "money", header="예산")
 food = """
 <section class="section">
   <div><div class="eyebrow">요나고에서 먹을 것</div><h2 style="font-size:24px;margin-top:4px">규코쓰 라멘과 대게</h2></div>
+  <div class="section-head" style="margin-top:4px"><h2>요나고역 앞 (둘째 날 · 셋째 날)</h2></div>
   <div class="card card-body">
     <div class="row"><strong>라멘 야마토</strong><span class="chip">ラーメン大和</span></div>
     <p class="small muted">요나고의 명물 규코쓰(소뼈) 라멘. 역 앞 야요이초. 한 그릇 ¥550, 11:00–22:45, 일요일 휴무라 월요일 밤에 가기 좋아요.</p>
@@ -623,6 +625,24 @@ food = """
   <div class="card card-body">
     <div class="row"><strong>다이헤이키</strong><span class="chip accent">대게</span></div>
     <p class="small muted">역 도보 3분 이자카야(太平記). 마쓰바가니 5품 코스 ¥9,800, 일반 코스 ¥3,300부터. 17:00–24:00, 연중무휴.</p>
+  </div>
+  <div class="section-head" style="margin-top:8px"><h2>가이케 온천가 (첫날 저녁)</h2></div>
+  <p class="small muted">11/30은 11월 다섯째 월요일이라 아래 가게 모두 영업일이에요. 영업 정보는 바뀔 수 있어요.</p>
+  <div class="card card-body">
+    <div class="row"><strong>이자카야 엔야</strong><span class="chip">エンヤ</span></div>
+    <p class="small muted">현지인에게도 인기 있는 이자카야. 메뉴가 많고 가격이 부담 없어요. 17:00–23:00, 베이사이드 스퀘어 가이케 호텔 안.</p>
+  </div>
+  <div class="card card-body">
+    <div class="row"><strong>쇼쿠사이 슈</strong><span class="chip accent">대게</span></div>
+    <p class="small muted">食彩 シュウ. 매일 들여오는 해산물 창작 일식, 겨울엔 게 요리. 17:00–23:00, 일요일·첫째·셋째 월요일 휴무.</p>
+  </div>
+  <div class="card card-body">
+    <div class="row"><strong>야키토리 아오이야</strong><span class="chip">やきとり葵屋</span></div>
+    <p class="small muted">닭꼬치에 반찬 5가지와 음료 2잔 세트 ¥1,500. 일요일 휴무.</p>
+  </div>
+  <div class="card card-body">
+    <div class="row"><strong>오션 레스토랑</strong><span class="chip">연중무휴</span></div>
+    <p class="small muted">당일치기 온천 시설 안 식당. 10:00–24:00, 산인 지역 식재료 요리.</p>
   </div>
   <div class="note info"><span class="mk">i</span><span>마쓰바가니(대게) 시즌은 2026년 11월 6일부터 2027년 3월 20일까지예요.</span></div>
 </section>

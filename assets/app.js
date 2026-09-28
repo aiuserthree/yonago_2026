@@ -94,13 +94,6 @@
   // 예산 계산기
   var budget = document.getElementById("budget");
   if (budget) {
-    var COMBOS = {
-      tensui: { name: "텐스이", stay: 145707 },
-      kikuman: { name: "기쿠만", stay: 173823 },
-      fuga: { name: "후가", stay: 192248 }
-    };
-    var state = { combo: "kikuman" };
-    try { state.combo = localStorage.getItem("yonago2026-combo") || "kikuman"; } catch (e) {}
     var rateInput = document.getElementById("rate");
     var fmt = function (n) { return "₩" + Math.round(n).toLocaleString("ko-KR"); };
     function render() {
@@ -111,25 +104,13 @@
         yen += y;
         td.textContent = "¥" + y.toLocaleString("ja-JP") + " · " + fmt(y * rate / 100);
       });
-      var c = COMBOS[state.combo];
-      document.getElementById("stay-name").textContent = "숙소 2박 (유니버설 + " + c.name + ")";
-      document.getElementById("stay-amt").textContent = fmt(c.stay);
+      var stayWon = parseFloat(document.getElementById("stay-amt").getAttribute("data-won")) || 0;
       var flight = 203491;
-      var total = flight + c.stay + yen * rate / 100;
+      var total = flight + stayWon + yen * rate / 100;
       document.getElementById("yen-sum").textContent = "¥" + yen.toLocaleString("ja-JP") + " · " + fmt(yen * rate / 100);
       document.getElementById("total").textContent = fmt(total);
       document.getElementById("total-2").textContent = fmt(total * 2);
-      budget.querySelectorAll(".seg button").forEach(function (b) {
-        b.setAttribute("aria-pressed", b.getAttribute("data-combo") === state.combo ? "true" : "false");
-      });
     }
-    budget.querySelectorAll(".seg button").forEach(function (b) {
-      b.addEventListener("click", function () {
-        state.combo = b.getAttribute("data-combo");
-        try { localStorage.setItem("yonago2026-combo", state.combo); } catch (e) {}
-        render();
-      });
-    });
     var edited = false;
     rateInput.addEventListener("input", function () { edited = true; render(); });
     render();

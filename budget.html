@@ -20,13 +20,7 @@
 <section class="section" id="budget">
   <div><div class="eyebrow">1인 기준</div><h2 style="font-size:24px;margin-top:4px">여행 예산</h2></div>
   <div class="card card-body">
-    <div class="tiny">2박째 숙소</div>
-    <div class="seg" role="group" aria-label="2박째 숙소 선택">
-      <button type="button" data-combo="tensui" aria-pressed="false">텐스이</button>
-      <button type="button" data-combo="kikuman" aria-pressed="true">기쿠만</button>
-      <button type="button" data-combo="fuga" aria-pressed="false">후가</button>
-    </div>
-    <label class="row small" for="rate" style="margin-top:4px"><span class="muted">환율 (100엔당 원)</span>
+    <label class="row small" for="rate"><span class="muted">환율 (100엔당 원)</span>
       <input id="rate" type="number" inputmode="decimal" value="861" min="500" max="2000" step="0.1"
         style="width:96px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);padding:0 10px;font:600 15px var(--num);text-align:right"></label>
     <p class="tiny" id="rate-src">2026-09-27 기준 환율 (100엔 ≈ 861원)</p>
@@ -35,11 +29,14 @@
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
       <tr><td>항공권 왕복 (에어서울)</td><td>₩203,491</td></tr>
-      <tr><td id="stay-name">숙소 2박</td><td id="stay-amt">-</td></tr>
-      <tr><td>공항 연계버스 (도착 ¥640 + 귀국 ¥500)</td><td data-yen="1140">-</td></tr>
+      <tr><td>숙소 2박 (후가 조식 + 유니버설 2식)</td><td id="stay-amt" data-won="154208">₩154,208</td></tr>
+      <tr><td>공항 연계버스 (도착 가이케 ¥500 + 귀국 요나고역 ¥640)</td><td data-yen="1140">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복</td><td data-yen="400">-</td></tr>
-      <tr><td>가이케선 버스</td><td data-yen="300">-</td></tr>
+      <tr><td>가이케 온천 → 요나고역 버스</td><td data-yen="300">-</td></tr>
+      <tr><td>마쓰에 왕복 (JR + 레이크라인 버스)</td><td data-yen="1520">-</td></tr>
+      <tr><td>마쓰에성 천수각</td><td data-yen="1200">-</td></tr>
       <tr><td>아다치 미술관 (여권 할인)</td><td data-yen="2400">-</td></tr>
+      <tr><td>첫날 저녁 (온천가 외식)</td><td data-yen="3500">-</td></tr>
       <tr><td>점심 2번 · 간식 · 라멘</td><td data-yen="5000">-</td></tr>
       <tr><td class="muted">현지 지출 합계</td><td id="yen-sum" class="muted">-</td></tr>
       <tr class="sum"><td>1인 합계</td><td id="total">-</td></tr>
@@ -47,11 +44,11 @@
     </table>
     </div>
   </div>
-  <p class="tiny">석식·조식은 두 숙소 모두 포함이라 따로 넣지 않았어요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
+  <p class="tiny">후가는 조식만, 유니버설은 조식·석식이 포함이라 첫날 저녁만 따로 넣었어요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
 </section>
 
 </main>
-<footer class="foot">요금은 2026년 9월 27일 Agoda 조회 기준이며 바뀔 수 있습니다. 숙소 사진·평점 출처: Agoda.</footer>
+<footer class="foot">요금은 2026년 9월 28일 Agoda 조회 기준이며 바뀔 수 있습니다. 숙소 사진·평점 출처: Agoda.</footer>
 </div>
 <nav class="tabbar" data-active="money" aria-label="주요 메뉴"></nav>
 <script src="/assets/app.js"></script>

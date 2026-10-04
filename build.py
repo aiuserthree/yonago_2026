@@ -59,6 +59,15 @@ def won(n):
     return f"₩{n:,}"
 
 
+def price_text(h):
+    """요금을 아직 모르는 숙소(price=None)는 '요금 확인 중'으로 표시."""
+    return won(h["price"]) if h["price"] is not None else "요금 확인 중"
+
+
+def occ(h):
+    return h.get("occ", "1인 1실")
+
+
 # ---------------------------------------------------------------- 숙소 데이터
 HOTELS = {
     "universal": {
@@ -163,8 +172,9 @@ HOTELS = {
         "jp": "皆生 風雅",
         "kind": "정원 료칸 · 3성급",
         "night": "1박째 · 11/30(월)",
-        "price": 119246,
-        "room": "1인 1실 · 스탠다드 트윈룸 또는 일본식 룸(객실 욕실 없음) · 같은 요금",
+        "price": None,  # 2인 1실 요금 확인 전 (1인 1실일 때 ₩119,246)
+        "occ": "2인 1실",
+        "room": "2인 1실 · 스탠다드 트윈룸 또는 일본식 룸(객실 욕실 없음)",
         "meal": "조식 포함",
         "cancel": "11/25까지 무료 취소 (11/26 전 취소 시) · 11/24 자동 결제",
         "addr": "3-16-1 Kaike Onsen, Yonago",
@@ -191,7 +201,7 @@ HOTELS = {
             "https://pix8.agoda.net/hotelImages/10569725/806986540/4c6dacbe40aacbbbd0da4c5e30077d34.jpg?va=1&ce=3&s=1024x",
             "https://pix8.agoda.net/hotelImages/10569725/806986536/02726504d7c3b85b92447b7cb478ed60.jpg?va=1&ce=3&s=1024x",
         ],
-        "agoda": "https://www.agoda.com/ko-kr/kaike-no-yado-yururi/hotel/yonago-jp.html?checkIn=2026-11-30&los=1&adults=1&rooms=1",
+        "agoda": "https://www.agoda.com/ko-kr/kaike-no-yado-yururi/hotel/yonago-jp.html?checkIn=2026-11-30&los=1&adults=2&rooms=1",
     },
 }
 
@@ -208,7 +218,9 @@ def img(src, alt, cls=""):
 
 def plan_card():
     n1, n2 = HOTELS[PLAN[0]], HOTELS[PLAN[1]]
-    total = n1["price"] + n2["price"]
+    known = n1["price"] is not None and n2["price"] is not None
+    total = won(n1["price"] + n2["price"]) if known else "요금 확인 중"
+    total_note = "2박 합계 · 세금 포함" if known else f"{n1['name']} {occ(n1)} 요금 확인 후 합계"
     return f"""
 <article class="card combo pick">
   <div class="combo-top">
@@ -221,12 +233,12 @@ def plan_card():
   <div class="nights">
     <a class="night" href="/stay-{PLAN[0]}">{img(n1['photos'][0], n1['name'])}
       <div><div class="when">1박 · 11/30 월 · {escape(n1['meal'])}</div><div class="nm">{escape(n1['name'])}</div></div>
-      <div class="p">{won(n1['price'])}</div></a>
+      <div class="p">{price_text(n1)}</div></a>
     <a class="night" href="/stay-{PLAN[1]}">{img(n2['photos'][0], n2['name'])}
       <div><div class="when">2박 · 12/1 화 · {escape(n2['meal'])}</div><div class="nm">{escape(n2['name'])}</div></div>
-      <div class="p">{won(n2['price'])}</div></a>
+      <div class="p">{price_text(n2)}</div></a>
   </div>
-  <div class="total"><span class="small muted">2박 합계 · 1인 1실 · 세금 포함</span><span class="amt">{won(total)}</span></div>
+  <div class="total"><span class="small muted">{escape(total_note)}</span><span class="amt">{total}</span></div>
 </article>"""
 
 
@@ -260,7 +272,7 @@ def stay_card(key):
     </div>
     <div class="row">
       <span class="score"><b>{h['score']}</b>{h['label']} · 후기 {h['reviews']:,}건</span>
-      <div class="price"><div class="amt">{won(h['price'])}</div><div class="per">1박 · 1인 · {escape(h['meal'])}</div></div>
+      <div class="price"><div class="amt">{price_text(h)}</div><div class="per">1박 · {occ(h)} · {escape(h['meal'])}</div></div>
     </div>
   </a>
 </article>"""
@@ -340,7 +352,7 @@ def today_stay(key, label):
     h = HOTELS[key]
     return f"""<a class="card stay-card" href="/stay-{key}" style="display:grid;grid-template-columns:96px 1fr;align-items:center">
     <div style="height:96px">{img(h['photos'][0], h['name'])}</div>
-    <div class="card-body"><div class="tiny">{label}</div><strong>{escape(h['name'])}</strong><span class="small muted">{escape(h['meal'])} · {won(h['price'])}</span></div>
+    <div class="card-body"><div class="tiny">{label}</div><strong>{escape(h['name'])}</strong><span class="small muted">{escape(h['meal'])} · {price_text(h)}</span></div>
   </a>"""
 
 
@@ -360,7 +372,7 @@ day1 = day_tabs("day1") + f"""
   </ol>
   </div>
   <div class="note info"><span class="mk">i</span><span>인천 노선 연계버스는 에어서울 인천↔요나고 편(월·수·목·금·일)에 맞춰 현지 버스 회사(히노마루 버스)가 운행하고, 비행기가 늦으면 출발도 늦춰져요. 놓치면 택시로 가이케 온천까지 약 20분·약 ¥4,500이에요.</span></div>
-  {today_stay("fuga", "오늘 숙소 · 1인 1실")}
+  {today_stay("fuga", "오늘 숙소 · 2인 1실")}
 </section>
 """
 page("day1.html", "요나고 DAY 1", day1, "plan", back="/", header="일정")
@@ -439,7 +451,7 @@ page("day3.html", "요나고 DAY 3", day3, "plan", back="/", header="일정")
 stay = f"""
 <section class="section">
   <div><div class="eyebrow">1박은 온천 료칸, 1박은 역 앞</div><h2 style="font-size:24px;margin-top:4px">확정한 숙소</h2>
-  <p class="small muted" style="margin-top:6px">1인 1실 · 세금 포함 · 2026년 9월 28일 Agoda 요금</p></div>
+  <p class="small muted" style="margin-top:6px">료칸은 2인 1실, 역 앞 호텔은 1인 1실 · 세금 포함 · 2026년 9월 28일 Agoda 요금</p></div>
   {plan_card()}
   <div class="list">{''.join(stay_card(k) for k in PLAN)}</div>
 </section>
@@ -475,7 +487,7 @@ def hotel_page(key):
   </div>
   <div class="card card-body">
     <div class="row">
-      <div><div class="tiny">1박 · 1인 · 세금 포함</div><div class="num" style="font-size:26px;font-weight:600">{won(h['price'])}</div></div>
+      <div><div class="tiny">1박 · {occ(h)} · 세금 포함</div><div class="num" style="font-size:26px;font-weight:600">{price_text(h)}</div></div>
       <span class="chip good">{escape(h['meal'])}</span>
     </div>
     <dl class="kv">
@@ -598,7 +610,7 @@ budget = """
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
       <tr><td>항공권 왕복 (에어서울)</td><td>₩203,491</td></tr>
-      <tr><td>숙소 2박 (후가 조식 + 유니버설 2식)</td><td id="stay-amt" data-won="154208">₩154,208</td></tr>
+      <tr><td>숙소 2박 (후가 2인 1실 조식 · 요금 확인 중 + 유니버설 1인 1실 2식)</td><td id="stay-amt" data-won="34962">₩34,962 + 후가</td></tr>
       <tr><td>공항 연계버스 (도착 가이케 ¥500 + 귀국 요나고역 ¥640)</td><td data-yen="1140">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복</td><td data-yen="400">-</td></tr>
       <tr><td>JR 요나고↔고토 왕복 (돈키호테)</td><td data-yen="300">-</td></tr>
@@ -610,11 +622,11 @@ budget = """
       <tr><td>점심 2번 · 간식 · 라멘</td><td data-yen="5000">-</td></tr>
       <tr><td class="muted">현지 지출 합계</td><td id="yen-sum" class="muted">-</td></tr>
       <tr class="sum"><td>1인 합계</td><td id="total">-</td></tr>
-      <tr><td class="muted">2명 (각자 1실 기준)</td><td id="total-2" class="muted">-</td></tr>
+      <tr><td class="muted">2명 (후가는 한 방, 유니버설은 각자 1실)</td><td id="total-2" class="muted">-</td></tr>
     </table>
     </div>
   </div>
-  <p class="tiny">후가는 조식만, 유니버설은 조식·석식이 포함이라 첫날 저녁만 따로 넣었어요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
+  <p class="tiny">후가 2인 1실 요금은 아직 확인 전이라 합계에서 빠져 있어요. 후가는 조식만, 유니버설은 조식·석식이 포함이라 첫날 저녁만 따로 넣었어요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
 </section>
 """
 page("budget.html", "요나고 예산", budget, "money", header="예산")

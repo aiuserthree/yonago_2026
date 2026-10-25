@@ -105,11 +105,11 @@
         td.textContent = "¥" + y.toLocaleString("ja-JP") + " · " + fmt(y * rate / 100);
       });
       var stayWon = parseFloat(document.getElementById("stay-amt").getAttribute("data-won")) || 0;
-      var flight = 203491;
+      var flight = parseFloat(document.getElementById("flight-amt").getAttribute("data-won")) || 0;
       var total = flight + stayWon + yen * rate / 100;
       document.getElementById("yen-sum").textContent = "¥" + yen.toLocaleString("ja-JP") + " · " + fmt(yen * rate / 100);
       document.getElementById("total").textContent = fmt(total);
-      document.getElementById("total-2").textContent = fmt(total * 2);
+      document.getElementById("total-2").textContent = fmt(total / 2);
     }
     var edited = false;
     rateInput.addEventListener("input", function () { edited = true; render(); });

@@ -496,8 +496,8 @@ transport = """
       <div class="end"><div class="code">ICN</div><div class="time">17:40</div><div class="city">인천 제1터미널</div></div>
     </div>
     <div class="perf"></div>
-    <div class="row"><span class="small muted">Agoda 왕복 · 2명 · 세금 포함<br>1인 ₩203,491 (9/28 조회)</span><span class="num" style="font-size:20px;font-weight:600">₩406,982</span></div>
-    <p class="tiny">위탁 수하물 포함 여부는 예약 전에 확인하세요.</p>
+    <div class="row"><span class="small muted">Agoda 왕복 · 2명 · 세금 포함<br>1인 ₩219,974 (10/25 조회)</span><span class="num" style="font-size:20px;font-weight:600">₩439,948</span></div>
+    <p class="tiny">10/25 조회 결과에는 기내 수하물만 표시됐어요. 위탁 수하물이 포함되는지 예약 전에 꼭 확인하세요.</p>
   </div>
 </section>
 
@@ -565,7 +565,7 @@ budget = """
   <div class="card">
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
-      <tr><td>항공권 왕복 2명 (에어서울)</td><td id="flight-amt" data-won="406982">₩406,982</td></tr>
+      <tr><td>항공권 왕복 2명 (에어서울)</td><td id="flight-amt" data-won="439948">₩439,948</td></tr>
       <tr><td>숙소 2박 2인 1실 (후가 2식 + 유니버설 2식)</td><td id="stay-amt" data-won="372389">₩372,389</td></tr>
       <tr><td>공항 연계버스 2명 (도착 ¥500 + 귀국 ¥640)</td><td data-yen="2280">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복 2명</td><td data-yen="800">-</td></tr>
@@ -581,7 +581,7 @@ budget = """
     </table>
     </div>
   </div>
-  <p class="tiny">두 숙소 모두 조식·석식이 포함이라 저녁 식비는 넣지 않았어요. 항공권은 9/28 조회 요금이에요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
+  <p class="tiny">두 숙소 모두 조식·석식이 포함이라 저녁 식비는 넣지 않았어요. 항공권은 10/25 조회 요금(1인 ₩219,974)이에요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
 </section>
 """
 page("budget.html", "요나고 예산", budget, "money", header="예산")

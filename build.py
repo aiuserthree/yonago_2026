@@ -497,7 +497,7 @@ transport = """
     </div>
     <div class="perf"></div>
     <div class="row"><span class="small muted">Agoda 왕복 · 2명 · 세금 포함<br>1인 ₩219,974 (10/25 조회)</span><span class="num" style="font-size:20px;font-weight:600">₩439,948</span></div>
-    <p class="tiny">10/25 조회 결과에는 기내 수하물만 표시됐어요. 위탁 수하물이 포함되는지 예약 전에 꼭 확인하세요.</p>
+    <p class="tiny"><b>위탁 수하물 미포함 요금</b>으로 정했어요(기내 수하물만). 위탁 수하물 포함 요금은 1인 ₩274,184였어요. 기내 수하물 무게·크기 규정은 에어서울에서 확인하세요.</p>
   </div>
 </section>
 
@@ -565,7 +565,7 @@ budget = """
   <div class="card">
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
-      <tr><td>항공권 왕복 2명 (에어서울)</td><td id="flight-amt" data-won="439948">₩439,948</td></tr>
+      <tr><td>항공권 왕복 2명 (에어서울 · 위탁 수하물 미포함)</td><td id="flight-amt" data-won="439948">₩439,948</td></tr>
       <tr><td>숙소 2박 2인 1실 (후가 2식 + 유니버설 2식)</td><td id="stay-amt" data-won="372389">₩372,389</td></tr>
       <tr><td>공항 연계버스 2명 (도착 ¥500 + 귀국 ¥640)</td><td data-yen="2280">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복 2명</td><td data-yen="800">-</td></tr>
@@ -636,7 +636,7 @@ page("food.html", "요나고 먹거리", food, "home", back="/", header="먹거�
 ITEMS = [
     ("여권 (유효기간 6개월 이상 권장)", "p1"), ("항공권 e-티켓", "p2"), ("숙소 예약 확인서 2곳", "p3"),
     ("Visit Japan Web 입국 정보 등록", "p4"), ("엔화 현금 · 동전 (버스는 현금)", "p5"),
-    ("해외 결제 카드", "p6"), ("돈키호테 쇼핑 목록 · 면세용 여권", "p13"), ("eSIM 또는 로밍", "p7"), ("110V 돼지코 어댑터", "p8"),
+    ("해외 결제 카드", "p6"), ("돈키호테 쇼핑 목록 · 면세용 여권", "p13"), ("기내 수하물 규정 확인 (위탁 수하물 없음)", "p14"), ("eSIM 또는 로밍", "p7"), ("110V 돼지코 어댑터", "p8"),
     ("방풍 겉옷 · 접이식 우산", "p9"), ("료칸 석식 시간 · 도착 시간 알리기", "p10"),
     ("연계버스 동계 시간표 확인", "p11"), ("여행자 보험", "p12"),
 ]

@@ -304,6 +304,37 @@ def tl(time, title, text="", kind=""):
             f'<div class="c"><h3>{title}</h3>{f"<p>{text}</p>" if text else ""}</div></li>')
 
 
+def guide_card():
+    """공항 → 가이케 후가 길 안내 (DAY 1 · 교통 페이지 공용)."""
+    steps = [
+        ("14:50", "입국 심사 · 짐 찾기", "끝나면 1층 도착 로비로 나가요."),
+        ("~15:40", "버스 승강장 7번 찾기", "터미널 밖 버스 승강장에서 7번을 찾아요. 모르겠으면 안내 데스크에 아래 문장을 보여 주세요.", 0),
+        ("15:50", "인천 노선 연계버스 승차", "기사에게 아래 문장을 보여 주고, 요금 ¥500은 현금으로 내요. 비행기가 늦으면 버스도 기다려요.", 1),
+        ("16:15", "가이케 온천에서 하차", "가이케 온천 관광센터(皆生温泉観光センター) 정류장일 가능성이 높아요. 공식 자료에는 정류장 이름이 없어서, 내릴 때 기사에게 한 번 더 확인하세요."),
+        ("16:20", "가이케 후가까지 걷기", "도보 약 4~7분(약 500m). 길을 모르겠으면 아래 문장을 보여 주세요.", 2),
+    ]
+    phrases = [
+        ("ソウル便の連絡バスはどこですか？", "서울편 연계버스는 어디서 타나요?"),
+        ("皆生温泉で降ります。皆生風雅に行きたいです。", "가이케 온천에서 내려요. 가이케 후가에 가고 싶어요."),
+        ("皆生風雅はどこですか？", "가이케 후가는 어디인가요?"),
+    ]
+    items = ""
+    for st in steps:
+        t, title, text = st[0], st[1], st[2]
+        ph = ""
+        if len(st) > 3:
+            jp, ko = phrases[st[3]]
+            ph = f'<div class="phrase"><span class="jp" lang="ja">{jp}</span><span class="ko">{ko}</span></div>'
+        items += (f'<li class="tl{" key" if t in ("15:50", "16:15") else ""}"><span class="t">{t}</span><span class="dot"></span>'
+                  f'<div class="c"><h3>{title}</h3><p>{text}</p>{ph}</div></li>')
+    return f"""<article class="card card-body guide" id="airport-guide">
+    <div class="row"><strong>공항 → 가이케 후가 가는 길</strong><span class="chip accent">11/30</span></div>
+    <ol class="timeline">{items}</ol>
+    <div class="note"><span class="mk">!</span><span>버스는 서울편이 결항하면 운행하지 않고, 만차면 못 탈 수 있어요. 놓치면 공항에서 택시로 약 20분 · 약 ¥4,500. 료칸 전화 0570-023-320 (9:00–18:00)</span></div>
+    <p class="tiny">근거: 요나고 공항 서울편 연계버스 시간표(2026.03 게시), 후가 공식 교통 안내, 지도 경로 계산. 일본어 문장은 화면을 그대로 보여 주면 돼요.</p>
+  </article>"""
+
+
 def today_stay(key, label):
     h = HOTELS[key]
     return f"""<a class="card stay-card" href="/stay-{key}" style="display:grid;grid-template-columns:96px 1fr;align-items:center">
@@ -327,7 +358,7 @@ day1 = day_tabs("day1") + f"""
     {tl("20:00", "료칸 온천 · 무료 사케", "밤 9시까지 사케와 음료 무료, 유카타 골라 입기, 노천탕")}
   </ol>
   </div>
-  <div class="note info"><span class="mk">i</span><span>인천 노선 연계버스는 에어서울 인천↔요나고 편(월·수·목·금·일)에 맞춰 현지 버스 회사(히노마루 버스)가 운행하고, 비행기가 늦으면 출발도 늦춰져요. 놓치면 택시로 가이케 온천까지 약 20분·약 ¥4,500이에요.</span></div>
+  {guide_card()}
   {today_stay("fuga", "오늘 숙소 · 2인 1실")}
 </section>
 """
@@ -503,6 +534,10 @@ transport = """
 
 <section class="section">
   <div class="section-head"><h2>공항 ↔ 시내</h2></div>
+  <a class="card card-body" href="/day1#airport-guide" style="text-decoration:none">
+    <div class="row"><strong>공항 → 가이케 후가 가는 길</strong><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></div>
+    <p class="small muted">7번 승강장 찾기부터 료칸까지 단계별 안내와 보여 주기용 일본어 문장</p>
+  </a>
   <div class="card card-body">
     <div class="row"><strong>인천 노선 연계버스</strong><span class="chip accent">추천</span></div>
     <p class="small muted">현지 정식 이름은 국제선(서울편) 연락버스(国際線 ソウル便連絡バス)예요. 에어서울 인천↔요나고 편 시간에 맞춰 히노마루 버스가 운행해요. 정류장 안내판에서는 「ソウル便」을 찾으세요.</p>

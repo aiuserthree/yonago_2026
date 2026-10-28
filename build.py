@@ -383,7 +383,7 @@ day1 = day_tabs("day1") + f"""
   <div><div class="eyebrow">DAY 1 · 11월 30일 월요일</div><h2 style="font-size:24px;margin-top:4px">도착해서 곧장 온천 마을로</h2></div>
   <div class="card card-body">
   <ol class="timeline">
-    {tl("11:00", "인천공항 제1터미널 도착", "에어서울 카운터에서 체크인. 여권 유효기간을 확인하세요.")}
+    {tl("11:00", "인천공항 제2터미널 도착", "에어서울은 2025년 9월부터 제2터미널이에요. E1~E10 카운터에서 체크인. 여권 유효기간을 확인하세요.")}
     {tl("13:20", "RS471 인천 출발", "비행 1시간 30분", "key")}
     {tl("14:50", "요나고 기타로 공항 도착", "입국 심사 후 7번 승강장으로")}
     {tl("15:50", "인천 노선 연계버스 탑승", "현지 이름: ソウル便連絡バス · 공항 7번 승강장 → 가이케 온천 16:15 하차 · ¥500 · 현금", "move")}
@@ -552,7 +552,7 @@ transport = """
   <div class="card card-body" style="gap:14px">
     <div class="tiny">가는 편 · 11/30 월 · RS471</div>
     <div class="boarding">
-      <div><div class="code">ICN</div><div class="time">13:20</div><div class="city">인천 제1터미널</div></div>
+      <div><div class="code">ICN</div><div class="time">13:20</div><div class="city">인천 제2터미널</div></div>
       <div class="mid"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 15.5 13.5 12V5.5a1.5 1.5 0 0 0-3 0V12L3 15.5V17l7.5-2v3.5L8.5 20v1.2l3.5-.9 3.5.9V20l-2-1.5V15l7.5 2z" transform="rotate(90 12 12)"/></svg><span>1시간 30분</span></div>
       <div class="end"><div class="code">YGJ</div><div class="time">14:50</div><div class="city">요나고 기타로</div></div>
     </div>
@@ -561,11 +561,11 @@ transport = """
     <div class="boarding">
       <div><div class="code">YGJ</div><div class="time">15:50</div><div class="city">요나고 기타로</div></div>
       <div class="mid"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 15.5 13.5 12V5.5a1.5 1.5 0 0 0-3 0V12L3 15.5V17l7.5-2v3.5L8.5 20v1.2l3.5-.9 3.5.9V20l-2-1.5V15l7.5 2z" transform="rotate(90 12 12)"/></svg><span>1시간 50분</span></div>
-      <div class="end"><div class="code">ICN</div><div class="time">17:40</div><div class="city">인천 제1터미널</div></div>
+      <div class="end"><div class="code">ICN</div><div class="time">17:40</div><div class="city">인천 제2터미널</div></div>
     </div>
     <div class="perf"></div>
-    <div class="row"><span class="small muted">Agoda 왕복 · 2명 · 세금 포함<br>1인 ₩219,974 (10/25 조회)</span><span class="num" style="font-size:20px;font-weight:600">₩439,948</span></div>
-    <p class="tiny"><b>위탁 수하물 미포함 요금</b>으로 정했어요(기내 수하물만). 위탁 수하물 포함 요금은 1인 ₩274,184였어요. 기내 수하물 무게·크기 규정은 에어서울에서 확인하세요.</p>
+    <div class="row"><span class="small muted">Agoda 왕복 · 2명 · 세금 포함<br>1인 ₩191,951 (10/29 조회)</span><span class="num" style="font-size:20px;font-weight:600">₩383,902</span></div>
+    <p class="tiny"><b>위탁 수하물 미포함 요금</b>으로 정했어요(기내 수하물만). 위탁 수하물 포함 요금은 1인 ₩257,872예요(10/29 조회). 기내 수하물 무게·크기 규정은 에어서울에서 확인하세요.</p>
   </div>
 </section>
 
@@ -645,7 +645,7 @@ budget = """
   <div class="card">
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
-      <tr><td>항공권 왕복 2명 (에어서울 · 위탁 수하물 미포함)</td><td id="flight-amt" data-won="439948">₩439,948</td></tr>
+      <tr><td>항공권 왕복 2명 (에어서울 · 위탁 수하물 미포함)</td><td id="flight-amt" data-won="383902">₩383,902</td></tr>
       <tr><td>숙소 2박 2인 1실 (후가 2식 + 유니버설 2식)</td><td id="stay-amt" data-won="372389">₩372,389</td></tr>
       <tr><td>공항 연계버스 2명 (도착 ¥500 + 귀국 ¥640)</td><td data-yen="2280">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복 2명</td><td data-yen="800">-</td></tr>
@@ -661,7 +661,7 @@ budget = """
     </table>
     </div>
   </div>
-  <p class="tiny">두 숙소 모두 조식·석식이 포함이라 저녁 식비는 넣지 않았어요. 항공권은 10/25 조회 요금(1인 ₩219,974)이에요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
+  <p class="tiny">두 숙소 모두 조식·석식이 포함이라 저녁 식비는 넣지 않았어요. 항공권은 10/29 조회 요금(1인 ₩191,951)이에요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
 </section>
 """
 page("budget.html", "요나고 예산", budget, "money", header="예산")
@@ -714,7 +714,7 @@ page("food.html", "요나고 먹거리", food, "home", back="/", header="먹거�
 
 # ---------------------------------------------------------------- 체크리스트
 ITEMS = [
-    ("여권 (유효기간 6개월 이상 권장)", "p1"), ("항공권 e-티켓", "p2"), ("숙소 예약 확인서 2곳", "p3"),
+    ("여권 (유효기간 6개월 이상 권장)", "p1"), ("항공권 e-티켓 · 인천 제2터미널", "p2"), ("숙소 예약 확인서 2곳", "p3"),
     ("Visit Japan Web 입국 정보 등록", "p4"), ("엔화 현금 · 동전 (버스는 현금)", "p5"),
     ("해외 결제 카드", "p6"), ("돈키호테 쇼핑 목록 · 면세용 여권", "p13"), ("기내 수하물 규정 확인 (위탁 수하물 없음)", "p14"), ("eSIM 또는 로밍", "p7"), ("110V 돼지코 어댑터", "p8"),
     ("방풍 겉옷 · 접이식 우산", "p9"), ("료칸 석식 시간 · 도착 시간 알리기", "p10"), ("후가 무료 송영차 예약 (11/29 21시까지)", "p15"),

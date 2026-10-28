@@ -20,11 +20,11 @@
   // D-day (출발: 2026-11-30 13:20 KST)
   var dd = document.querySelectorAll("[data-dday]");
   if (dd.length) {
-    var depart = new Date("2026-11-30T00:00:00+09:00");
+    var depart = new Date("2026-11-29T00:00:00+09:00");
     var now = new Date();
     var today = new Date(now.toLocaleDateString("en-CA", { timeZone: "Asia/Seoul" }) + "T00:00:00+09:00");
     var diff = Math.round((depart - today) / 86400000);
-    var text = diff > 0 ? "D-" + diff : diff === 0 ? "D-DAY" : diff >= -2 ? "여행 중" : "다녀왔어요";
+    var text = diff > 0 ? "D-" + diff : diff === 0 ? "D-DAY" : diff >= -3 ? "여행 중" : "다녀왔어요";
     dd.forEach(function (el) { el.textContent = text; });
   }
 

@@ -356,7 +356,7 @@ main { display: flex; flex-direction: column; gap: 24px; padding: 16px 16px 8px;
 .tl .c p { font-size: 14px; color: var(--ink-2); }
 .tl.move .c h3 { font-weight: 600; font-size: 14px; color: var(--ink-2); }
 
-.day-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 4px; background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); }
+.day-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 4px; background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); }
 .day-tabs a { text-align: center; text-decoration: none; padding: 8px 4px; border-radius: 10px; font-size: 13px; font-weight: 600; color: var(--ink-2); }
 .day-tabs a[aria-current="page"] { background: var(--sea); color: #fff; }
 

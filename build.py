@@ -240,6 +240,37 @@ def stay_card(key):
 </article>"""
 
 
+FLIGHT_URL = "https://www.agoda.com/ko-kr/flights/results?departureFrom=ICN&departureFromType=1&arrivalTo=YGJ&arrivalToType=1&departDate=2026-11-29&returnDate=2026-12-02&searchType=2&cabinType=Economy&adults=2&children=0&infants=0&sort=8"
+
+
+def booking_card():
+    """항공권·숙소 예약 링크를 한곳에 모은 카드."""
+    k, u = HOTELS["kikuman"], HOTELS["universal"]
+    rows = [
+        ("항공권", "에어서울 RS471/472 · 11/29~12/2 · 성인 2명",
+         "직항 · <b>위탁 수하물 미포함</b> 요금 · 1인 ₩210,942 (10/29)", "탑승객 영문 이름은 여권과 똑같이", FLIGHT_URL),
+        ("1박 · 11/29", k["name"],
+         "<b>다다미 8~10장 방 (Without Bath · Non Smoking)</b> · 조식·석식 · " + won(k["price"]),
+         "11/22까지 무료 취소 · 요청란에 도착 16:20 적기", k["agoda"]),
+        ("2·3박 · 11/30~12/2", u["name"],
+         "<b>트윈룸 A (금연) · Free Breakfast and Dinner Plan</b> · 2박 " + won(stay_total(u)),
+         "11/28까지 무료 취소", u["agoda"]),
+    ]
+    items = "".join(f"""
+    <li class="book-row">
+      <div class="tiny">{label}</div>
+      <strong>{name}</strong>
+      <p class="small muted">{pick}</p>
+      <p class="tiny">{note}</p>
+      <a class="btn" href="{escape(url)}" target="_blank" rel="noopener">Agoda에서 예약하기</a>
+    </li>""" for label, name, pick, note, url in rows)
+    return f"""<article class="card card-body" id="booking">
+    <div class="row"><strong>예약하기</strong><span class="chip accent">성인 2명</span></div>
+    <ol class="book-list">{items}</ol>
+    <div class="note"><span class="mk">!</span><span>요금은 10/29 조회 기준이라 바뀔 수 있어요. Agoda에 로그인했는지, 결제 화면의 최종 금액과 자동 결제일을 꼭 확인하세요. 예약은 직접 진행해요.</span></div>
+  </article>"""
+
+
 # ---------------------------------------------------------------- 홈
 home = f"""
 <section class="hero">
@@ -296,6 +327,7 @@ home = f"""
     <a class="btn secondary" href="/checklist">준비물 체크</a>
     <a class="btn secondary" href="/food">먹거리</a>
   </div>
+  <a class="btn" href="/stay#booking">항공권 · 숙소 예약 링크</a>
 </section>
 """
 page("index.html", "요나고 3박 4일", home, "home")
@@ -498,6 +530,7 @@ page("day4.html", "요나고 DAY 4", day4, "plan", back="/", header="일정")
 
 # ---------------------------------------------------------------- 숙소 목록
 stay = f"""
+{booking_card()}
 <section class="section">
   <div><div class="eyebrow">1박은 온천 료칸, 2박은 역 앞</div><h2 style="font-size:24px;margin-top:4px">확정한 숙소</h2>
   <p class="small muted" style="margin-top:6px">성인 2명 · 2인 1실 · 세금 포함 · 2026년 10월 29일 Agoda 요금</p></div>
@@ -590,6 +623,7 @@ transport = """
     </div>
     <div class="perf"></div>
     <div class="row"><span class="small muted">Agoda 왕복 · 2명 · 세금 포함<br>1인 ₩210,942 (10/29 조회)</span><span class="num" style="font-size:20px;font-weight:600">₩421,884</span></div>
+    <a class="btn" href="/stay#booking">예약 링크 보기</a>
     <p class="tiny"><b>위탁 수하물 미포함 요금</b>으로 정했어요(기내 수하물만). 위탁 수하물 포함 요금은 1인 ₩222,744예요(10/29 조회). 기내 수하물 무게·크기 규정은 에어서울에서 확인하세요.</p>
   </div>
 </section>

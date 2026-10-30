@@ -45,7 +45,7 @@ def page(filename, title, body, tab, back=None, header=None):
 <main>
 {body}
 </main>
-<footer class="foot">요금은 2026년 10월 29일 Agoda 조회 기준이며 바뀔 수 있습니다. 숙소 사진·평점 출처: Agoda.</footer>
+<footer class="foot">요금은 2026년 10월 29~30일 Agoda 조회 기준이며 바뀔 수 있습니다. 숙소 사진·평점 출처: Agoda.</footer>
 </div>
 <nav class="tabbar" data-active="{tab}" aria-label="주요 메뉴"></nav>
 <script src="/assets/app.js"></script>
@@ -100,22 +100,23 @@ HOTELS = {
         "jp": "いこい亭 菊萬",
         "kind": "온천 료칸 · 4성급",
         "night": "1박째 · 11/29(일)",
-        "price": 418130,
-        "room": "2인 1실 · 일본식 룸 - 욕조 (Japanese-Style Room with Bath) · 15㎡ · 객실 샤워실 · 금연",
+        "price": 403077,
+        "room": "2인 1실 · 스탠다드 다다미 객실(마사지체어) 욕실 있음 (Standard Japanese-style Room with Massage Chair *Has bath) · 15㎡ · 욕조 · 금연",
         "meal": "조식·석식 포함",
-        "cancel": "11/22까지 무료 취소 (11/23 전 취소 시) · 11/21까지 결제 없음",
+        "cancel": "11/25까지 무료 취소 (11/26 전 취소 시) · 지금 결제 요금 · 결제일은 예약 화면에서 확인",
         "addr": "4-27-1 Kaike Onsen, Yonago (米子市皆生温泉4-27-1)",
         "access": "가이케 온천 관광센터 정류장에서 도보 약 3~5분(약 250m) · 체크인 15:00 · 체크아웃 10:00 · 전화 0859-38-3300",
-        "score": 8.7, "reviews": 122, "label": "우수",
-        "bars": [("직원 태도", 9.4), ("청결도", 8.9), ("가격 대비", 8.8), ("편의시설", 8.6)],
+        "score": 8.4, "reviews": 407, "label": "우수",
+        "bars": [("가격 대비", 8.6), ("청결도", 8.5), ("위치", 7.5)],
         "pros": [
-            "체크인부터 프런트 직원이 친절했다는 후기가 가장 많아요 (직원 태도 9.4).",
+            "체크인부터 프런트 직원이 친절했다는 후기가 가장 많아요.",
             "조식과 석식이 맛있고, 서비스와 음식 모두 만족했다는 평이 이어져요.",
             "노천탕이 좋고, 눈 오는 겨울에 들어가면 분위기가 특히 좋다고 해요.",
             "다다미방에 객실마다 안마의자가 있어요.",
         ],
         "cons": [
-            "후기 수(122건)가 다른 곳보다 적어요.",
+            "위치 점수는 7.5로 다른 항목보다 낮아요.",
+            "같은 료칸의 다른 Agoda 페이지 평점은 8.7(133건)이에요. 판매처가 달라 평점이 나뉘어 있어요.",
         ],
         "photos": [
             "https://pix8.agoda.net/property/15635178/0/1bf4f720c5d3b078f9b022616d4106c8.jpeg?va=1&ce=3&s=600x",
@@ -125,7 +126,7 @@ HOTELS = {
             "https://pix8.agoda.net/property/15635178/612954456/30b5ca46ebe16bfb5f52b100ef6922cf.jpeg?va=1&s=1024x",
             "https://pix8.agoda.net/property/15635178/884440437/2de3dd1d9ffc22768cb1a80031cbd5fe.jpeg?va=1&s=1024x",
         ],
-        "agoda": "https://www.agoda.com/ko-kr/ikoitei-kikuman-h15635178/hotel/yonago-jp.html?checkIn=2026-11-29&checkOut=2026-11-30&los=1&adults=2&rooms=1",
+        "agoda": "https://www.agoda.com/ko-kr/ikoitei-kikuman-h10565533/hotel/yonago-jp.html?checkIn=2026-11-29&checkOut=2026-11-30&los=1&adults=2&rooms=1",
     },
     "fuga": {
         "name": "가이케 후가",
@@ -249,8 +250,8 @@ def booking_card():
         ("항공권", "에어서울 RS471/472 · 11/29~12/2 · 성인 2명",
          "직항 · <b>위탁 수하물 미포함</b> 요금 · 1인 ₩210,942 (10/29)", "탑승객 영문 이름은 여권과 똑같이", FLIGHT_URL),
         ("1박 · 11/29", k["name"],
-         "<b>일본식 룸 - 욕조 (Japanese-Style Room with Bath)</b> · 조식·석식 · " + won(k["price"]),
-         "11/22까지 무료 취소 · 11/21까지 결제 없음 · 요청란에 도착 16:20 적기", k["agoda"]),
+         "<b>Standard Japanese-style Room with Massage Chair *Has bath</b> · 조식·석식 · 공급처 JAPANiCAN · " + won(k["price"]),
+         "위쪽의 *No bath 객실과 헷갈리지 마세요 · 11/25까지 무료 취소 · 지금 결제 요금 · 요청란에 도착 16:20 적기", k["agoda"]),
         ("2·3박 · 11/30~12/2", u["name"],
          "<b>트윈룸 A (금연) · Free Breakfast and Dinner Plan</b> · 2박 " + won(stay_total(u)),
          "11/28까지 무료 취소", u["agoda"]),
@@ -266,7 +267,7 @@ def booking_card():
     return f"""<article class="card card-body" id="booking">
     <div class="row"><strong>예약하기</strong><span class="chip accent">성인 2명</span></div>
     <ol class="book-list">{items}</ol>
-    <div class="note"><span class="mk">!</span><span>요금은 10/29 조회 기준이라 바뀔 수 있어요. Agoda에 로그인했는지, 결제 화면의 최종 금액과 자동 결제일을 꼭 확인하세요. 예약은 직접 진행해요.</span></div>
+    <div class="note"><span class="mk">!</span><span>요금은 10/29~30 조회 기준이라 바뀔 수 있어요. Agoda에 로그인했는지, 결제 화면의 최종 금액과 자동 결제일을 꼭 확인하세요. 예약은 직접 진행해요.</span></div>
   </article>"""
 
 
@@ -534,7 +535,7 @@ stay = f"""
 {booking_card()}
 <section class="section">
   <div><div class="eyebrow">1박은 온천 료칸, 2박은 역 앞</div><h2 style="font-size:24px;margin-top:4px">확정한 숙소</h2>
-  <p class="small muted" style="margin-top:6px">성인 2명 · 2인 1실 · 세금 포함 · 2026년 10월 29일 Agoda 요금</p></div>
+  <p class="small muted" style="margin-top:6px">성인 2명 · 2인 1실 · 세금 포함 · 2026년 10월 29~30일 Agoda 요금</p></div>
   {plan_card()}
   <div class="list">{''.join(stay_card(k) for k in PLAN)}</div>
 </section>
@@ -706,7 +707,7 @@ budget = """
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
       <tr><td>항공권 왕복 2명 (에어서울 · 위탁 수하물 미포함)</td><td id="flight-amt" data-won="421884">₩421,884</td></tr>
-      <tr><td>숙소 3박 2인 1실 (기쿠만 2식 + 유니버설 2식 2박)</td><td id="stay-amt" data-won="535032">₩535,032</td></tr>
+      <tr><td>숙소 3박 2인 1실 (기쿠만 2식 + 유니버설 2식 2박)</td><td id="stay-amt" data-won="519979">₩519,979</td></tr>
       <tr><td>공항 연계버스 2명 (도착 ¥500 + 귀국 ¥640)</td><td data-yen="2280">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복 2명</td><td data-yen="800">-</td></tr>
       <tr><td>JR 요나고↔고토 왕복 2명 (돈키호테)</td><td data-yen="600">-</td></tr>

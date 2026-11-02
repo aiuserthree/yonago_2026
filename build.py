@@ -45,7 +45,7 @@ def page(filename, title, body, tab, back=None, header=None):
 <main>
 {body}
 </main>
-<footer class="foot">요금은 2026년 10월 29~30일 Agoda 조회 기준이며 바뀔 수 있습니다. 숙소 사진·평점 출처: Agoda.</footer>
+<footer class="foot">요금은 2026년 10월 29일~11월 2일 Agoda 조회 기준이며 바뀔 수 있습니다. 숙소 사진·평점 출처: Agoda.</footer>
 </div>
 <nav class="tabbar" data-active="{tab}" aria-label="주요 메뉴"></nav>
 <script src="/assets/app.js"></script>
@@ -100,7 +100,7 @@ HOTELS = {
         "jp": "いこい亭 菊萬",
         "kind": "온천 료칸 · 4성급",
         "night": "1박째 · 11/29(일)",
-        "price": 403077,
+        "price": 403292,
         "room": "2인 1실 · 스탠다드 다다미 객실(마사지체어) 욕실 있음 (Standard Japanese-style Room with Massage Chair *Has bath) · 15㎡ · 욕조 · 금연",
         "meal": "조식·석식 포함",
         "cancel": "11/25까지 무료 취소 (11/26 전 취소 시) · 지금 결제 요금 · 결제일은 예약 화면에서 확인",
@@ -251,7 +251,7 @@ def booking_card():
          "직항 · <b>위탁 수하물 미포함</b> 요금 · 1인 ₩210,942 (10/29)", "탑승객 영문 이름은 여권과 똑같이", FLIGHT_URL),
         ("1박 · 11/29", k["name"],
          "<b>Standard Japanese-style Room with Massage Chair *Has bath</b> · 조식·석식 · 공급처 JAPANiCAN · " + won(k["price"]),
-         "위쪽의 *No bath 객실과 헷갈리지 마세요 · 11/25까지 무료 취소 · 지금 결제 요금 · 요청란에 도착 16:20 적기", k["agoda"]),
+         "<b>링크를 열면 맨 위 객실은 욕실 없는 *No bath(₩366,013)예요. 그 아래 *Has bath " + won(k["price"]) + "를 고르세요.</b> 11/25까지 무료 취소 · 지금 결제 요금 · 요청란에 도착 16:20 적기", k["agoda"]),
         ("2·3박 · 11/30~12/2", u["name"],
          "<b>트윈룸 A (금연) · Free Breakfast and Dinner Plan</b> · 2박 " + won(stay_total(u)),
          "11/28까지 무료 취소", u["agoda"]),
@@ -267,7 +267,7 @@ def booking_card():
     return f"""<article class="card card-body" id="booking">
     <div class="row"><strong>예약하기</strong><span class="chip accent">성인 2명</span></div>
     <ol class="book-list">{items}</ol>
-    <div class="note"><span class="mk">!</span><span>요금은 10/29~30 조회 기준이라 바뀔 수 있어요. Agoda에 로그인했는지, 결제 화면의 최종 금액과 자동 결제일을 꼭 확인하세요. 예약은 직접 진행해요.</span></div>
+    <div class="note"><span class="mk">!</span><span>요금은 10/29~11/2 조회 기준이라 바뀔 수 있어요. Agoda에 로그인했는지, 결제 화면의 최종 금액과 자동 결제일을 꼭 확인하세요. 예약은 직접 진행해요.</span></div>
   </article>"""
 
 
@@ -535,7 +535,7 @@ stay = f"""
 {booking_card()}
 <section class="section">
   <div><div class="eyebrow">1박은 온천 료칸, 2박은 역 앞</div><h2 style="font-size:24px;margin-top:4px">확정한 숙소</h2>
-  <p class="small muted" style="margin-top:6px">성인 2명 · 2인 1실 · 세금 포함 · 2026년 10월 29~30일 Agoda 요금</p></div>
+  <p class="small muted" style="margin-top:6px">성인 2명 · 2인 1실 · 세금 포함 · 2026년 10월 29일~11월 2일 Agoda 요금</p></div>
   {plan_card()}
   <div class="list">{''.join(stay_card(k) for k in PLAN)}</div>
 </section>
@@ -707,7 +707,7 @@ budget = """
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
       <tr><td>항공권 왕복 2명 (에어서울 · 위탁 수하물 미포함)</td><td id="flight-amt" data-won="421884">₩421,884</td></tr>
-      <tr><td>숙소 3박 2인 1실 (기쿠만 2식 + 유니버설 2식 2박)</td><td id="stay-amt" data-won="519979">₩519,979</td></tr>
+      <tr><td>숙소 3박 2인 1실 (기쿠만 2식 + 유니버설 2식 2박)</td><td id="stay-amt" data-won="520194">₩520,194</td></tr>
       <tr><td>공항 연계버스 2명 (도착 ¥500 + 귀국 ¥640)</td><td data-yen="2280">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복 2명</td><td data-yen="800">-</td></tr>
       <tr><td>JR 요나고↔고토 왕복 2명 (돈키호테)</td><td data-yen="600">-</td></tr>

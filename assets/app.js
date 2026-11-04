@@ -17,7 +17,7 @@
     }).join("");
   }
 
-  // D-day (출발: 2026-11-30 13:20 KST)
+  // D-day (출발: 2026-11-29 13:20 KST · RS471)
   var dd = document.querySelectorAll("[data-dday]");
   if (dd.length) {
     var depart = new Date("2026-11-29T00:00:00+09:00");

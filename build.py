@@ -45,7 +45,7 @@ def page(filename, title, body, tab, back=None, header=None):
 <main>
 {body}
 </main>
-<footer class="foot">요금은 2026년 10월 29일~11월 2일 Agoda 조회 기준이며 바뀔 수 있습니다. 숙소 사진·평점 출처: Agoda.</footer>
+<footer class="foot">요금은 예약 전 마지막으로 조회한 금액(2026년 10월 29일~11월 2일 Agoda)이에요. 실제 결제 금액은 예약 확인서를 보세요. 숙소 사진·평점 출처: Agoda.</footer>
 </div>
 <nav class="tabbar" data-active="{tab}" aria-label="주요 메뉴"></nav>
 <script src="/assets/app.js"></script>
@@ -130,46 +130,9 @@ HOTELS = {
         ],
         "agoda": "https://www.agoda.com/ko-kr/ikoitei-kikuman-h10565533/hotel/yonago-jp.html?checkIn=2026-11-29&checkOut=2026-11-30&los=1&adults=2&rooms=1",
     },
-    "fuga": {
-        "name": "가이케 후가",
-        "jp": "皆生 風雅",
-        "kind": "정원 료칸 · 3성급",
-        "night": "다른 후보 · 11/29(일)",
-        "price": 486093,
-        "room": "2인 1실 · 스탠다드 트윈룸 (금연)",
-        "meal": "조식·석식 포함",
-        "cancel": "11/23까지 무료 취소",
-        "addr": "3-16-1 Kaike Onsen, Yonago",
-        "access": "가이케 온천 관광센터 정류장에서 도보 약 4~7분(약 500m) · 요나고역 남쪽 출구 무료 송영(사전 예약)",
-        "score": 8.4, "reviews": 440, "label": "우수",
-        "bars": [("직원 태도", 8.9), ("가격 대비", 8.7), ("청결도", 8.6), ("편의시설", 8.5)],
-        "pros": [
-            "밤 9시까지 사케와 음료가 무료이고, 유카타를 골라 입을 수 있어요.",
-            "조식이 특히 맛있어서 더 머물고 싶었다는 후기가 있어요.",
-            "노천탕이 있고, 가족탕(대절탕)은 따로 예약해 쓸 수 있어요.",
-            "요나고역에서 무료 송영 차량을 운영해요 (사전 예약 필수).",
-            "첫 입실 때 직원이 관내 시설을 함께 돌며 안내해 줘요.",
-        ],
-        "cons": [
-            "석식 포함 요금이라 늦게 체크인하면 석식이 제공되지 않고 환불도 안 돼요. 도착 예정 시간(16:30 전후)을 미리 알려 두세요.",
-            "흡연 가능 객실 정책이라 냄새에 민감하면 금연 요청을 남기는 게 좋아요.",
-        ],
-        "photos": [
-            "https://pix8.agoda.net/hotelImages/4436879/0/00d6c0e2563b146f1f5fbf5ff9e5b3c0.jpeg?va=1&ce=3&s=1024x",
-            "https://pix8.agoda.net/hotelImages/4436879/0/4da76435ad5227e4b382c6756a444ae8.jpeg?va=1&ce=3&s=600x",
-            "https://pix8.agoda.net/hotelImages/10569725/806986537/5f81f588461cc242a0f8c79017457591.jpg?va=1&ce=3&s=1024x",
-            "https://pix8.agoda.net/hotelImages/10569725/806986540/032978827c53b5f479fd819f27e77563.jpg?va=1&ce=3&s=1024x",
-            "https://pix8.agoda.net/hotelImages/10569725/806986537/965d868338ca29240b73570f85b4a61d.jpg?va=1&ce=2&s=1024x",
-            "https://pix8.agoda.net/hotelImages/10569725/806986540/4c6dacbe40aacbbbd0da4c5e30077d34.jpg?va=1&ce=3&s=1024x",
-            "https://pix8.agoda.net/hotelImages/10569725/806986536/02726504d7c3b85b92447b7cb478ed60.jpg?va=1&ce=3&s=1024x",
-        ],
-        "agoda": "https://www.agoda.com/ko-kr/kaike-no-yado-yururi/hotel/yonago-jp.html?checkIn=2026-11-29&checkOut=2026-11-30&los=1&adults=2&rooms=1",
-    },
 }
 
-HOTELS = {k: HOTELS[k] for k in ("kikuman", "universal", "fuga")}
-PLAN = ("kikuman", "universal")  # 1박째, 2·3박째 (확정)
-ALTS = ("fuga",)  # 1박째 다른 후보
+PLAN = ("kikuman", "universal")  # 1박째, 2·3박째 (예약 완료)
 
 
 def stay_total(h):
@@ -242,15 +205,13 @@ def stay_card(key):
 </article>"""
 
 
-FLIGHT_URL = "https://www.agoda.com/ko-kr/flights/results?departureFrom=ICN&departureFromType=1&arrivalTo=YGJ&arrivalToType=1&departDate=2026-11-29&returnDate=2026-12-02&searchType=2&cabinType=Economy&adults=2&children=0&infants=0&sort=8"
-
-
 def booking_card():
-    """항공권·숙소 예약 링크를 한곳에 모은 카드."""
+    """항공권·숙소 예약 현황을 한곳에 모은 카드."""
     k, u = HOTELS["kikuman"], HOTELS["universal"]
     rows = [
         ("항공권", "에어서울 RS471/472 · 11/29~12/2 · 성인 2명",
-         "직항 · <b>위탁 수하물 미포함</b> 요금 · 1인 ₩210,942 (10/29)", "탑승객 영문 이름은 여권과 똑같이", FLIGHT_URL, False),
+         "직항 · <b>위탁 수하물 미포함</b> · 왕복 2명 ₩421,884 (1인 ₩210,942)",
+         "<b>발권 중</b> · e-티켓을 받으면 영문 이름이 여권과 같은지 확인", None, True),
         ("1박 · 11/29", k["name"],
          "<b>Standard Japanese-style Room with Massage Chair *Has bath</b> · 조식·석식 · " + won(k["price"]),
          "<b>11/25까지 취소 가능</b> · 도착 16:20쯤과 석식 시간 알리기", k["agoda"], True),
@@ -261,6 +222,8 @@ def booking_card():
     def status(done):
         return '<span class="chip good">예약 완료</span>' if done else '<span class="chip warn">예약 필요</span>'
     def button(url, done):
+        if not url:
+            return ""
         cls, text = ("btn secondary", "Agoda 숙소 페이지") if done else ("btn", "Agoda에서 예약하기")
         return f'<a class="{cls}" href="{escape(url)}" target="_blank" rel="noopener">{text}</a>'
     items = "".join(f"""
@@ -274,7 +237,7 @@ def booking_card():
     return f"""<article class="card card-body" id="booking">
     <div class="row"><strong>예약 현황</strong><span class="chip accent">성인 2명</span></div>
     <ol class="book-list">{items}</ol>
-    <div class="note"><span class="mk">!</span><span>숙소 금액은 마지막 조회 요금이에요. 실제 금액과 취소 기한은 예약 확인서를 기준으로 보세요. 항공권 요금은 10/29 조회 기준이라 바뀔 수 있어요.</span></div>
+    <div class="note"><span class="mk">!</span><span>금액은 예약 전에 마지막으로 조회한 요금이에요. 실제 결제 금액과 취소 기한은 예약 확인서를 기준으로 보세요.</span></div>
   </article>"""
 
 
@@ -334,7 +297,7 @@ home = f"""
     <a class="btn secondary" href="/checklist">준비물 체크</a>
     <a class="btn secondary" href="/food">먹거리</a>
   </div>
-  <a class="btn" href="/stay#booking">예약 현황 · 항공권 링크</a>
+  <a class="btn" href="/stay#booking">예약 현황 보기</a>
   <a class="btn secondary" href="/budget#cash">현금 · ATM 안내</a>
 </section>
 """
@@ -377,7 +340,7 @@ def guide_card(gid, title, chip, steps, note, source):
 GUIDE_DAY1 = guide_card(
     "airport-guide", "공항 → 이코이테이 기쿠만 가는 길", "11/29",
     [
-        ("14:50", "입국 심사 · 짐 찾기", "끝나면 1층 도착 로비로 나가요."),
+        ("14:50", "입국 심사 · 세관", "위탁 수하물이 없어서 짐 찾는 곳은 그냥 지나가요. 끝나면 1층 도착 로비로 나가요."),
         ("~15:40", "버스 승강장 7번 찾기", "터미널 밖 버스 승강장에서 7번을 찾아요. 모르겠으면 안내 데스크에 아래 문장을 보여 주세요.",
          ("ソウル便の連絡バスはどこですか？", "서울편 연계버스는 어디서 타나요?")),
         ("15:50", "인천 노선 연계버스 승차", "기사에게 아래 문장을 보여 주고, 요금 ¥500은 현금으로 내요. 일요일에도 다니고, 비행기가 늦으면 버스도 기다려요.",
@@ -441,7 +404,7 @@ day1 = day_tabs("day1") + f"""
     {tl("16:20", "이코이테이 기쿠만 체크인", "관광센터 정류장에서 도보 약 3~5분(약 250m). 체크인 때 석식 시간을 정해요.", "key")}
     {tl("16:45", "가이케 해변 일몰 산책", "11월 말 일몰은 오후 5시 전후. 료칸에서 해변까지 가까워요")}
     {tl("18:00", "료칸 석식", "조식·석식 포함 요금. 대게(마쓰바가니) 시즌이에요", "key")}
-    {tl("20:00", "노천탕 · 객실 안마의자", "대욕장과 노천탕에서 온천을 즐기고, 방 샤워실도 쓸 수 있어요")}
+    {tl("20:00", "노천탕 · 객실 안마의자", "대욕장과 노천탕에서 온천을 즐기고, 객실 욕실(욕조)도 쓸 수 있어요")}
   </ol>
   </div>
   {GUIDE_DAY1}
@@ -541,18 +504,10 @@ page("day4.html", "요나고 DAY 4", day4, "plan", back="/", header="일정")
 stay = f"""
 {booking_card()}
 <section class="section">
-  <div><div class="eyebrow">1박은 온천 료칸, 2박은 역 앞</div><h2 style="font-size:24px;margin-top:4px">예약한 숙소</h2>
-  <p class="small muted" style="margin-top:6px">성인 2명 · 2인 1실 · 세금 포함 · 2026년 10월 29일~11월 2일 Agoda 요금</p></div>
+  <div><div class="eyebrow">숙소 예약 완료 · 1박은 온천 료칸, 2박은 역 앞</div><h2 style="font-size:24px;margin-top:4px">예약한 숙소</h2>
+  <p class="small muted" style="margin-top:6px">성인 2명 · 2인 1실 · 세금 포함 · 금액은 Agoda 마지막 조회 요금 (실제 금액은 예약 확인서 기준)</p></div>
   {plan_card()}
   <div class="list">{''.join(stay_card(k) for k in PLAN)}</div>
-</section>
-<section class="section">
-  <div class="section-head"><h2>11/29 다른 료칸 후보</h2></div>
-  <p class="small muted">2인 1실 조식·석식 포함 기준이에요. 후가는 11/29 일요일 밤 요금이 11/30보다 훨씬 비싸요.</p>
-  <div class="list">{''.join(stay_card(k) for k in ALTS)}</div>
-</section>
-<section class="section">
-  <div class="note info"><span class="mk">i</span><span>APA 제휴 호텔(요나고 시티가든즈 호텔)도 APA 공식 사이트에서 예약할 수 있어요. 식사는 포함되지 않아요.</span></div>
 </section>
 """
 page("stay.html", "요나고 숙소", stay, "stay", header="숙소")
@@ -631,9 +586,9 @@ transport = """
       <div class="end"><div class="code">ICN</div><div class="time">17:40</div><div class="city">인천 제2터미널</div></div>
     </div>
     <div class="perf"></div>
-    <div class="row"><span class="small muted">Agoda 왕복 · 2명 · 세금 포함<br>1인 ₩210,942 (10/29 조회)</span><span class="num" style="font-size:20px;font-weight:600">₩421,884</span></div>
-    <a class="btn" href="/stay#booking">예약 링크 보기</a>
-    <p class="tiny"><b>위탁 수하물 미포함 요금</b>으로 정했어요(기내 수하물만). 위탁 수하물 포함 요금은 1인 ₩222,744예요(10/29 조회). 기내 수하물 무게·크기 규정은 에어서울에서 확인하세요.</p>
+    <div class="row"><span class="small muted"><b>예약 완료 · 발권 중</b> · 왕복 2명 · 세금 포함<br>1인 ₩210,942 (예약 전 조회 요금)</span><span class="num" style="font-size:20px;font-weight:600">₩421,884</span></div>
+    <a class="btn secondary" href="/stay#booking">예약 현황 보기</a>
+    <p class="tiny"><b>위탁 수하물 미포함 요금</b>으로 예약했어요(기내 수하물만). 기내 수하물 무게·크기 규정은 에어서울에서 확인하세요.</p>
   </div>
 </section>
 
@@ -713,7 +668,7 @@ budget = """
   <div class="card">
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
-      <tr><td>항공권 왕복 2명 (에어서울 · 위탁 수하물 미포함)</td><td id="flight-amt" data-won="421884">₩421,884</td></tr>
+      <tr><td>항공권 왕복 2명 · 예약 완료 (에어서울 · 위탁 수하물 미포함)</td><td id="flight-amt" data-won="421884">₩421,884</td></tr>
       <tr><td>숙소 3박 2인 1실 · 예약 완료 (기쿠만 2식 + 유니버설 2식 2박)</td><td id="stay-amt" data-won="520194">₩520,194</td></tr>
       <tr><td>공항 연계버스 2명 (도착 ¥500 + 귀국 ¥640)</td><td data-yen="2280">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복 2명</td><td data-yen="800">-</td></tr>
@@ -769,7 +724,7 @@ budget = """
   </div>
   <div class="note info"><span class="mk">i</span><span>ICOCA: 요나고 일대 JR과 노선버스(2026년 3월부터)에서 쓸 수 있고 운임은 현금과 같아요. 사려면 요나고역에서 현금으로 사요(보통 ¥2,000, 보증금 ¥500 포함). 이번 일정은 현금만으로도 충분해요.</span></div>
 </section>
-  <p class="tiny">세 밤 모두 조식·석식이 포함이라 저녁 식비는 넣지 않았어요. 항공권은 10/29 조회 요금(1인 ₩210,942)이에요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
+  <p class="tiny">세 밤 모두 조식·석식이 포함이라 저녁 식비는 넣지 않았어요. 항공권·숙소는 예약 전 마지막 조회 요금이라 실제 결제 금액과 조금 다를 수 있어요. 환율은 페이지를 열 때 최신값으로 바뀌고, 직접 고쳐 넣을 수도 있어요.</p>
 </section>
 """
 page("budget.html", "요나고 예산", budget, "money", header="예산")
@@ -822,10 +777,10 @@ page("food.html", "요나고 먹거리", food, "home", back="/", header="먹거�
 
 # ---------------------------------------------------------------- 체크리스트
 ITEMS = [
-    ("여권 (유효기간 6개월 이상 권장)", "p1"), ("항공권 e-티켓 · 인천 제2터미널", "p2"), ("숙소 예약 확인서 2곳", "p3"), ("기쿠만 취소 기한 11/25 확인", "p17"), ("유니버설 11/28 결제 카드 한도 확인", "p18"),
+    ("여권 (유효기간 6개월 이상 권장)", "p1"), ("항공권 e-티켓 발권 확인 · 인천 제2터미널", "p2"), ("숙소 예약 확인서 2곳", "p3"), ("기쿠만 취소 기한 11/25 확인", "p17"), ("유니버설 11/28 결제 카드 한도 확인", "p18"),
     ("Visit Japan Web 입국 정보 등록", "p4"), ("한국에서 엔화 ¥5,000 환전 (첫날 버스·비상금)", "p5"), ("트래블월렛 이온은행 ATM 수수료 확인", "p16"),
     ("해외 결제 카드", "p6"), ("돈키호테 쇼핑 목록 · 면세용 여권", "p13"), ("기내 수하물 규정 확인 (위탁 수하물 없음)", "p14"), ("eSIM 또는 로밍", "p7"), ("110V 돼지코 어댑터", "p8"),
-    ("방풍 겉옷 · 접이식 우산", "p9"), ("료칸 석식 시간 · 도착 시간 알리기", "p10"), ("기쿠만에 도착 시간(16:20쯤)과 석식 시간 알리기", "p15"),
+    ("방풍 겉옷 · 접이식 우산", "p9"), ("기쿠만에 도착 시간(16:20쯤)과 석식 시간 알리기", "p15"),
     ("연계버스 동계 시간표 확인", "p11"), ("여행자 보험", "p12"),
 ]
 checklist = f"""

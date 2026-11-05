@@ -285,9 +285,10 @@ home = f"""
 <section class="section">
   <div class="section-head"><h2>날씨와 옷차림</h2></div>
   <div class="card card-body">
-    <div class="row"><span class="muted small">11월 말 평년</span><span class="num">최고 15° / 최저 6°</span></div>
-    <div class="row"><span class="muted small">12월 초 평년</span><span class="num">최고 13° / 최저 5°</span></div>
-    <p class="small muted">비나 진눈깨비가 잦은 시기예요. 방풍 겉옷과 접이식 우산을 챙기세요. (기상청 요나고 평년값)</p>
+    <div class="row"><span class="muted small">11/29~12/2 평년</span><span class="num">최고 14° / 최저 5~6°</span></div>
+    <div class="row"><span class="muted small">하늘</span><span class="small">흐린 날이 많고 하루 해 약 3시간</span></div>
+    <div class="row"><span class="muted small">1개월 예보 (10/29)</span><span class="small">평년보다 따뜻할 확률 60% · 11월 말 흐리거나 비 오는 날 많음</span></div>
+    <p class="small muted">아침저녁은 5°까지 내려가고 바닷가인 가이케·사카이미나토는 바람이 차요. 겹쳐 입고, 우산과 방수 겉옷은 매일 들고 다니세요. 11/22쯤부터 주간 예보를 확인하세요. (기상청 요나고 일별 평년값 1991~2020 · 중국지방 1개월 예보)</p>
   </div>
 </section>
 
@@ -780,8 +781,8 @@ ITEMS = [
     ("여권 (유효기간 6개월 이상 권장)", "p1"), ("항공권 e-티켓 발권 확인 · 인천 제2터미널", "p2"), ("숙소 예약 확인서 2곳", "p3"), ("기쿠만 취소 기한 11/25 확인", "p17"), ("유니버설 11/28 결제 카드 한도 확인", "p18"),
     ("Visit Japan Web 입국 정보 등록", "p4"), ("한국에서 엔화 ¥5,000 환전 (첫날 버스·비상금)", "p5"), ("트래블월렛 이온은행 ATM 수수료 확인", "p16"),
     ("해외 결제 카드", "p6"), ("돈키호테 쇼핑 목록 · 면세용 여권", "p13"), ("기내 수하물 규정 확인 (위탁 수하물 없음)", "p14"), ("eSIM 또는 로밍", "p7"), ("110V 돼지코 어댑터", "p8"),
-    ("방풍 겉옷 · 접이식 우산", "p9"), ("기쿠만에 도착 시간(16:20쯤)과 석식 시간 알리기", "p15"),
-    ("연계버스 동계 시간표 확인", "p11"), ("여행자 보험", "p12"),
+    ("방수 되는 겉옷 (바람막이·얇은 패딩) · 접이식 우산", "p9"), ("겹쳐 입을 니트·긴팔 (아침 5°, 낮 14°)", "p19"), ("젖어도 되는 편한 신발 · 여벌 양말", "p20"), ("기쿠만에 도착 시간(16:20쯤)과 석식 시간 알리기", "p15"),
+    ("연계버스 동계 시간표 확인", "p11"), ("11/22쯤부터 요나고 주간 예보 확인", "p21"), ("여행자 보험", "p12"),
 ]
 checklist = f"""
 <section class="section">

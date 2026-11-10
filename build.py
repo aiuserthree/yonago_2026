@@ -102,11 +102,11 @@ HOTELS = {
         "jp": "いこい亭 菊萬",
         "kind": "온천 료칸 · 4성급",
         "night": "1박째 · 11/29(일)",
-        "price": 403292,
+        "price": 400750,  # 실제 결제 금액
         "room": "2인 1실 · 스탠다드 다다미 객실(마사지체어) 욕실 있음 (Standard Japanese-style Room with Massage Chair *Has bath) · 15㎡ · 욕조 · 금연",
         "meal": "조식·석식 포함",
         "booked": True,
-        "cancel": "예약 완료 · 11/25까지 취소 가능",
+        "cancel": "예약 완료 · 결제 완료 · 11/25까지 무료 취소",
         "addr": "4-27-1 Kaike Onsen, Yonago (米子市皆生温泉4-27-1)",
         "access": "가이케 온천 관광센터 정류장에서 도보 약 3~5분(약 250m) · 체크인 15:00 · 체크아웃 10:00 · 전화 0859-38-3300",
         "score": 8.4, "reviews": 407, "label": "우수",
@@ -215,7 +215,7 @@ def booking_card():
          "<b>발권 중</b> · e-티켓을 받으면 영문 이름이 여권과 같은지 확인", None, True),
         ("1박 · 11/29", k["name"],
          "<b>Standard Japanese-style Room with Massage Chair *Has bath</b> · 조식·석식 · " + won(k["price"]),
-         "<b>11/25까지 취소 가능</b> · 도착 16:20쯤과 석식 시간 알리기", k["agoda"], True),
+         "<b>결제 완료 · 11/25까지 무료 취소</b> · 도착 16:20쯤과 석식 시간 알리기", k["agoda"], True),
         ("2·3박 · 11/30~12/2", u["name"],
          "<b>싱글룸 C (금연) 2실 · Free Breakfast and Dinner Plan</b> · 2박 " + won(stay_total(u)),
          "<b>11/29까지 무료 취소 · 11/28 자동 결제</b> · 결제 카드 한도 확인", u["agoda"], True),
@@ -671,8 +671,8 @@ budget = """
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
       <tr><td>항공권 왕복 2명 · 예약 완료 (에어서울 · 위탁 수하물 미포함)</td><td id="flight-amt" data-won="421884">₩421,884</td></tr>
-      <tr><td>숙소 3박 · 예약 완료 (기쿠만 2인 1실 2식 + 유니버설 싱글룸 2실 2식 2박)</td><td id="stay-amt" data-won="563944">₩563,944</td></tr>
-      <tr><td class="muted">예약 소계 (항공권 + 숙소)<div class="tiny">1인 ₩492,914 · 남은 결제: 11/28 유니버설 ₩160,652 자동 결제</div></td><td class="muted">₩985,828</td></tr>
+      <tr><td>숙소 3박 · 예약 완료 (기쿠만 2인 1실 2식 + 유니버설 싱글룸 2실 2식 2박)</td><td id="stay-amt" data-won="561402">₩561,402</td></tr>
+      <tr><td class="muted">예약 소계 (항공권 + 숙소)<div class="tiny">1인 ₩491,643 · 남은 결제: 11/28 유니버설 ₩160,652 자동 결제</div></td><td class="muted">₩983,286</td></tr>
       <tr><td>공항 연계버스 2명 (도착 ¥500 + 귀국 ¥640)</td><td data-yen="2280">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복 2명</td><td data-yen="800">-</td></tr>
       <tr><td>JR 요나고↔고토 왕복 2명 (돈키호테)</td><td data-yen="600">-</td></tr>

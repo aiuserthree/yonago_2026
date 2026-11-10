@@ -695,13 +695,14 @@ budget = """
   <div class="card">
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
-      <tr><td><b>꼭 현금</b><div class="tiny">인천 노선 연계버스 (도착 ¥500 + 귀국 ¥640) · 공항 시간표에 "기본 현금"</div></td><td>¥2,280</td></tr>
-      <tr><td><b>현금 또는 ICOCA</b><div class="tiny">JR(야스기·고토·사카이미나토·마쓰에), 레이크라인 버스, 가이케↔요나고역 노선버스 · 트래블월렛 카드로는 못 내요</div></td><td>¥6,360</td></tr>
-      <tr><td><b>카드 확인 못 함 → 현금 준비</b><div class="tiny">아다치 미술관, 마쓰에성, 미즈키 시게루 기념관 입장료</div></td><td>¥9,200</td></tr>
-      <tr><td><b>일부 현금</b><div class="tiny">점심 · 라멘 · 간식 (작은 식당은 현금만 받는 곳이 많아요)</div></td><td>약 ¥15,000</td></tr>
-      <tr class="sum"><td>준비할 현금<div class="tiny">필요 ¥32,840 + 여유 · 한국 환전 ¥5,000 + ATM 인출 ¥29,000</div></td><td>¥34,000</td></tr>
+      <tr><td><b>꼭 현금</b><div class="tiny">인천 노선 연계버스 (도착 ¥500 + 귀국 ¥640) · 공항 시간표에 "기본 현금"</div></td><td data-cash-yen="2280">¥2,280 · ₩19,480</td></tr>
+      <tr><td><b>현금 또는 ICOCA</b><div class="tiny">JR(야스기·고토·사카이미나토·마쓰에), 레이크라인 버스, 가이케↔요나고역 노선버스 · 트래블월렛 카드로는 못 내요</div></td><td data-cash-yen="6360">¥6,360 · ₩54,340</td></tr>
+      <tr><td><b>카드 확인 못 함 → 현금 준비</b><div class="tiny">아다치 미술관, 마쓰에성, 미즈키 시게루 기념관 입장료</div></td><td data-cash-yen="9200">¥9,200 · ₩78,605</td></tr>
+      <tr><td><b>일부 현금</b><div class="tiny">점심 · 라멘 · 간식 (작은 식당은 현금만 받는 곳이 많아요)</div></td><td data-cash-yen="15000" data-approx="1">약 ¥15,000 · ₩128,160</td></tr>
+      <tr class="sum"><td>준비할 현금<div class="tiny">필요 ¥32,840(<span data-won-of="32840">약 ₩280,585</span>) + 여유 · 한국 환전 ¥5,000 + ATM 인출 ¥29,000</div></td><td data-cash-yen="34000">¥34,000 · ₩290,496</td></tr>
     </table>
     </div>
+    <p class="tiny" style="padding:0 16px 12px">원화는 위 예산의 환율로 계산해요. 환율을 바꾸면 같이 바뀌어요.</p>
   </div>
   <div class="card card-body">
     <strong>카드로 내도 되는 곳</strong>
@@ -720,8 +721,8 @@ budget = """
   <div class="card card-body">
     <strong>인출 계획</strong>
     <ol class="timeline">
-      <li class="tl key"><span class="t">출발 전</span><span class="dot"></span><div class="c"><h3>한국에서 엔화 ¥5,000 환전</h3><p>첫날 공항 연계버스(¥1,000), 11/30 아침 가이케 → 요나고역 버스(¥600), 료칸 음료 같은 비상금. 공항·가이케에는 이온 ATM이 없어요.</p></div></li>
-      <li class="tl key"><span class="t">11/30</span><span class="dot"></span><div class="c"><h3>10:35 이온 요나고에키마에점 ATM</h3><p>버스로 요나고역에 내리면 바로 들러서 약 ¥29,000 인출. 천 엔 단위로 뽑으면 1,000엔권이 섞여 나와 버스 요금 내기 편해요.</p></div></li>
+      <li class="tl key"><span class="t">출발 전</span><span class="dot"></span><div class="c"><h3>한국에서 엔화 ¥5,000 환전 (<span data-won-of="5000">약 ₩42,720</span>)</h3><p>첫날 공항 연계버스(¥1,000), 11/30 아침 가이케 → 요나고역 버스(¥600), 료칸 음료 같은 비상금. 공항·가이케에는 이온 ATM이 없어요.</p></div></li>
+      <li class="tl key"><span class="t">11/30</span><span class="dot"></span><div class="c"><h3>10:35 이온 요나고에키마에점 ATM</h3><p>버스로 요나고역에 내리면 바로 들러서 약 ¥29,000(<span data-won-of="29000">약 ₩247,776</span>) 인출. 천 엔 단위로 뽑으면 1,000엔권이 섞여 나와 버스 요금 내기 편해요.</p></div></li>
       <li class="tl"><span class="t">이후</span><span class="dot"></span><div class="c"><h3>부족하면 같은 ATM</h3><p>DAY 3·4에도 9:00–23:00에 쓸 수 있어요. 1만 엔권은 돈키호테·편의점에서 깨 두세요.</p></div></li>
     </ol>
   </div>

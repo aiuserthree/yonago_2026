@@ -427,3 +427,4 @@ html { scroll-padding-top: 72px; }
 .book-row { display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-top: 1px solid var(--line); }
 .book-row:first-child { border-top: 0; padding-top: 4px; }
 .book-row .btn { margin-top: 6px; height: 44px; font-size: 14px; }
+.money td[data-cash-yen] { white-space: nowrap; }

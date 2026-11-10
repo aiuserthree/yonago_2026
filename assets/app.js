@@ -110,6 +110,14 @@
       document.getElementById("yen-sum").textContent = "¥" + yen.toLocaleString("ja-JP") + " · " + fmt(yen * rate / 100);
       document.getElementById("total").textContent = fmt(total);
       document.getElementById("total-2").textContent = fmt(total / 2);
+      // 현금 안내도 같은 환율로
+      document.querySelectorAll("[data-cash-yen]").forEach(function (el) {
+        var y = parseFloat(el.getAttribute("data-cash-yen"));
+        el.textContent = (el.hasAttribute("data-approx") ? "약 " : "") + "¥" + y.toLocaleString("ja-JP") + " · " + fmt(y * rate / 100);
+      });
+      document.querySelectorAll("[data-won-of]").forEach(function (el) {
+        el.textContent = "약 " + fmt(parseFloat(el.getAttribute("data-won-of")) * rate / 100);
+      });
     }
     var edited = false;
     rateInput.addEventListener("input", function () { edited = true; render(); });

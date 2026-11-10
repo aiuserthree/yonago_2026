@@ -66,12 +66,13 @@ HOTELS = {
         "jp": "米子ユニバーサルホテル",
         "kind": "비즈니스 호텔 · 3성급",
         "night": "2·3박째 · 11/30(월)~12/2(수)",
-        "price": 58451,
+        "price": 80326,  # 싱글룸 2실 1박 (1실 ₩40,163)
         "nights": 2,
-        "room": "2인 1실 · 트윈룸 A (금연) · 17㎡ · 싱글베드 2개",
+        "occ": "1인 1실 × 2실",
+        "room": "1인 1실 × 2실 · 싱글룸 C (금연) · 15㎡ · 싱글베드 1개",
         "meal": "조식·석식 무료 플랜",
         "booked": True,
-        "cancel": "예약 완료 · 11/28 결제 예정",
+        "cancel": "예약 완료 · 11/29까지 무료 취소 · 11/28 자동 결제",
         "addr": "121 Mannōchō, Yonago (米子市万能町)",
         "access": "요나고역 북口에서 도보 약 4분(280m)",
         "score": 7.5, "reviews": 3417, "label": "좋음",
@@ -94,7 +95,7 @@ HOTELS = {
             "https://pix8.agoda.net/property/58297545/0/ad37b8493d11530c8c72a98cb8aaa240.jpeg?va=1&ce=3&s=600x",
             "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/742891533.jpg?k=a322c2b424937dbe051be74d02071d00dd96e29ccfa0d91ecbf371bc71651381&o=&s=600x",
         ],
-        "agoda": "https://www.agoda.com/ko-kr/yonago-universal-hotel-station-h11458945/hotel/yonago-jp.html?checkIn=2026-11-30&checkOut=2026-12-02&los=2&adults=2&rooms=1",
+        "agoda": "https://www.agoda.com/ko-kr/yonago-universal-hotel-station-h11458945/hotel/yonago-jp.html?checkIn=2026-11-30&checkOut=2026-12-02&los=2&adults=2&rooms=2",
     },
     "kikuman": {
         "name": "이코이테이 기쿠만",
@@ -165,7 +166,7 @@ def plan_card():
       <div><div class="when">2박 · 11/30~12/2 · {escape(n2['meal'])}</div><div class="nm">{escape(n2['name'])}</div></div>
       <div class="p">{won(stay_total(n2))}</div></a>
   </div>
-  <div class="total"><span class="small muted">3박 합계 · 2인 1실 · 세금 포함<br>1인당 약 {won(round(total / 2))}</span><span class="amt">{won(total)}</span></div>
+  <div class="total"><span class="small muted">3박 합계 · 2명 · 세금 포함<br>1인당 약 {won(round(total / 2))}</span><span class="amt">{won(total)}</span></div>
 </article>"""
 
 
@@ -199,7 +200,7 @@ def stay_card(key):
     </div>
     <div class="row">
       <span class="score"><b>{h['score']}</b>{h['label']} · 후기 {h['reviews']:,}건</span>
-      <div class="price"><div class="amt">{won(stay_total(h))}</div><div class="per">{h.get('nights', 1)}박 · 2인 1실 · {escape(h['meal'])}</div></div>
+      <div class="price"><div class="amt">{won(stay_total(h))}</div><div class="per">{h.get('nights', 1)}박 · {h.get('occ', '2인 1실')} · {escape(h['meal'])}</div></div>
     </div>
   </a>
 </article>"""
@@ -216,8 +217,8 @@ def booking_card():
          "<b>Standard Japanese-style Room with Massage Chair *Has bath</b> · 조식·석식 · " + won(k["price"]),
          "<b>11/25까지 취소 가능</b> · 도착 16:20쯤과 석식 시간 알리기", k["agoda"], True),
         ("2·3박 · 11/30~12/2", u["name"],
-         "<b>트윈룸 A (금연) · Free Breakfast and Dinner Plan</b> · 2박 " + won(stay_total(u)),
-         "<b>11/28 결제 예정</b> · 결제 카드 한도 확인", u["agoda"], True),
+         "<b>싱글룸 C (금연) 2실 · Free Breakfast and Dinner Plan</b> · 2박 " + won(stay_total(u)),
+         "<b>11/29까지 무료 취소 · 11/28 자동 결제</b> · 결제 카드 한도 확인", u["agoda"], True),
     ]
     def status(done):
         return '<span class="chip good">예약 완료</span>' if done else '<span class="chip warn">예약 필요</span>'
@@ -429,7 +430,7 @@ day2 = day_tabs("day2") + f"""
     {tl("11:50", "아다치 미술관", "미국 정원 전문지 선정 일본 정원 1위를 이어온 곳. 12월 초는 늦단풍이 남아 있을 수 있어요. 성인 ¥2,500, 여권 제시 시 ¥2,400", "key")}
     {tl("14:00", "셔틀 → 야스기역 → 요나고", "미술관 발 14:00 / 14:30 셔틀", "move")}
     {tl("15:00", "늦은 점심 · 역 앞 구경", "니쿠곳초(肉ごっつお, 15:00까지)는 빠듯하니 역 주변 카페나 이온몰도 좋아요")}
-    {tl("16:00", "요나고 유니버설 호텔 체크인", "트윈룸 A (금연) · 2박", "key")}
+    {tl("16:00", "요나고 유니버설 호텔 체크인", "싱글룸 C (금연) 2실 · 2박", "key")}
     {tl("18:00", "호텔 석식", "무료 석식 플랜 포함")}
     {tl("19:29", "JR 요나고 → 고토", "사카이선 1정거장, 6분 · ¥150", "move")}
     {tl("19:35", "MEGA 돈키호테 요나고점", "고토역 바로 옆. 9:00–24:00, 연중무휴. 면세 가능하니 여권을 챙기세요", "key")}
@@ -449,7 +450,7 @@ day2 = day_tabs("day2") + f"""
     </dl>
     <p class="tiny">저녁 사카이선은 한 시간에 한 대꼴이에요. 요나고 발 18:03·19:29·20:25 / 고토 발 19:57·20:59·22:10 (평일)</p>
   </div>
-  {today_stay("universal", "오늘부터 2박 · 2인 1실")}
+  {today_stay("universal", "오늘부터 2박 · 싱글룸 2실")}
 </section>
 """
 page("day2.html", "요나고 DAY 2", day2, "plan", back="/", header="일정")
@@ -506,7 +507,7 @@ stay = f"""
 {booking_card()}
 <section class="section">
   <div><div class="eyebrow">숙소 예약 완료 · 1박은 온천 료칸, 2박은 역 앞</div><h2 style="font-size:24px;margin-top:4px">예약한 숙소</h2>
-  <p class="small muted" style="margin-top:6px">성인 2명 · 2인 1실 · 세금 포함 · 금액은 Agoda 마지막 조회 요금 (실제 금액은 예약 확인서 기준)</p></div>
+  <p class="small muted" style="margin-top:6px">성인 2명 · 기쿠만 2인 1실 · 유니버설 1인실 2개 · 세금 포함 · 금액은 Agoda 마지막 조회 요금 (실제 금액은 예약 확인서 기준)</p></div>
   {plan_card()}
   <div class="list">{''.join(stay_card(k) for k in PLAN)}</div>
 </section>
@@ -534,7 +535,7 @@ def hotel_page(key):
   </div>
   <div class="card card-body">
     <div class="row">
-      <div><div class="tiny">{h.get('nights', 1)}박 · 2인 1실 · 세금 포함</div><div class="num" style="font-size:26px;font-weight:600">{won(stay_total(h))}</div><div class="tiny">{'1박 ' + won(h['price']) + ' · ' if h.get('nights', 1) > 1 else ''}1인당 약 {won(round(stay_total(h) / 2))}</div></div>
+      <div><div class="tiny">{h.get('nights', 1)}박 · {h.get('occ', '2인 1실')} · 세금 포함</div><div class="num" style="font-size:26px;font-weight:600">{won(stay_total(h))}</div><div class="tiny">{'1박 ' + won(h['price']) + (' (2실)' if h.get('occ') else '') + ' · ' if h.get('nights', 1) > 1 else ''}1인당 약 {won(round(stay_total(h) / 2))}</div></div>
       <span class="chip good">{escape(h['meal'])}</span>
     </div>
     <dl class="kv">
@@ -670,7 +671,7 @@ budget = """
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
       <tr><td>항공권 왕복 2명 · 예약 완료 (에어서울 · 위탁 수하물 미포함)</td><td id="flight-amt" data-won="421884">₩421,884</td></tr>
-      <tr><td>숙소 3박 2인 1실 · 예약 완료 (기쿠만 2식 + 유니버설 2식 2박)</td><td id="stay-amt" data-won="520194">₩520,194</td></tr>
+      <tr><td>숙소 3박 · 예약 완료 (기쿠만 2인 1실 2식 + 유니버설 싱글룸 2실 2식 2박)</td><td id="stay-amt" data-won="563944">₩563,944</td></tr>
       <tr><td>공항 연계버스 2명 (도착 ¥500 + 귀국 ¥640)</td><td data-yen="2280">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복 2명</td><td data-yen="800">-</td></tr>
       <tr><td>JR 요나고↔고토 왕복 2명 (돈키호테)</td><td data-yen="600">-</td></tr>
@@ -778,7 +779,7 @@ page("food.html", "요나고 먹거리", food, "home", back="/", header="먹거�
 
 # ---------------------------------------------------------------- 체크리스트
 ITEMS = [
-    ("여권 (유효기간 6개월 이상 권장)", "p1"), ("항공권 e-티켓 발권 확인 · 인천 제2터미널", "p2"), ("숙소 예약 확인서 2곳", "p3"), ("기쿠만 취소 기한 11/25 확인", "p17"), ("유니버설 11/28 결제 카드 한도 확인", "p18"),
+    ("여권 (유효기간 6개월 이상 권장)", "p1"), ("항공권 e-티켓 발권 확인 · 인천 제2터미널", "p2"), ("숙소 예약 확인서 2곳", "p3"), ("기쿠만 취소 기한 11/25 확인", "p17"), ("유니버설 11/28 자동 결제 카드 한도 확인 (싱글룸 2실)", "p18"),
     ("Visit Japan Web 입국 정보 등록", "p4"), ("한국에서 엔화 ¥5,000 환전 (첫날 버스·비상금)", "p5"), ("트래블월렛 이온은행 ATM 수수료 확인", "p16"),
     ("해외 결제 카드", "p6"), ("돈키호테 쇼핑 목록 · 면세용 여권", "p13"), ("기내 수하물 규정 확인 (위탁 수하물 없음)", "p14"), ("eSIM 또는 로밍", "p7"), ("110V 돼지코 어댑터", "p8"),
     ("방수 되는 겉옷 (바람막이·얇은 패딩) · 접이식 우산", "p9"), ("겹쳐 입을 니트·긴팔 (아침 5°, 낮 14°)", "p19"), ("젖어도 되는 편한 신발 · 여벌 양말", "p20"), ("기쿠만에 도착 시간(16:20쯤)과 석식 시간 알리기", "p15"),

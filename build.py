@@ -663,15 +663,16 @@ budget = """
   <div><div class="eyebrow">성인 2명 기준</div><h2 style="font-size:24px;margin-top:4px">여행 예산</h2></div>
   <div class="card card-body">
     <label class="row small" for="rate"><span class="muted">환율 (100엔당 원)</span>
-      <input id="rate" type="number" inputmode="decimal" value="861" min="500" max="2000" step="0.1"
+      <input id="rate" type="number" inputmode="decimal" value="854.4" min="500" max="2000" step="0.1"
         style="width:96px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);padding:0 10px;font:600 15px var(--num);text-align:right"></label>
-    <p class="tiny" id="rate-src">2026-09-27 기준 환율 (100엔 ≈ 861원)</p>
+    <p class="tiny" id="rate-src">2026-11-09 기준 환율 (100엔 ≈ 854.4원)</p>
   </div>
   <div class="card">
     <div class="table-wrap" style="padding:4px 16px">
     <table class="money">
       <tr><td>항공권 왕복 2명 · 예약 완료 (에어서울 · 위탁 수하물 미포함)</td><td id="flight-amt" data-won="421884">₩421,884</td></tr>
       <tr><td>숙소 3박 · 예약 완료 (기쿠만 2인 1실 2식 + 유니버설 싱글룸 2실 2식 2박)</td><td id="stay-amt" data-won="563944">₩563,944</td></tr>
+      <tr><td class="muted">예약 소계 (항공권 + 숙소)<div class="tiny">1인 ₩492,914 · 남은 결제: 11/28 유니버설 ₩160,652 자동 결제</div></td><td class="muted">₩985,828</td></tr>
       <tr><td>공항 연계버스 2명 (도착 ¥500 + 귀국 ¥640)</td><td data-yen="2280">-</td></tr>
       <tr><td>JR 요나고↔야스기 왕복 2명</td><td data-yen="800">-</td></tr>
       <tr><td>JR 요나고↔고토 왕복 2명 (돈키호테)</td><td data-yen="600">-</td></tr>

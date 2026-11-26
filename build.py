@@ -212,7 +212,7 @@ def booking_card():
     rows = [
         ("항공권", "에어서울 RS471/472 · 11/29~12/2 · 성인 2명",
          "직항 · <b>위탁 수하물 미포함</b> · 왕복 2명 ₩421,884 (1인 ₩210,942)",
-         "<b>발권 중</b> · e-티켓을 받으면 영문 이름이 여권과 같은지 확인", None, True),
+         "<b>발권 완료 (11/3)</b> · 두 편 모두 CONFIRMED · 무료 위탁 수하물 0개 · e-티켓의 영문 이름이 여권과 같은지 확인", None, True),
         ("1·2박 · 11/29~12/1", d["name"],
          "<b>싱글룸 (청소 서비스 없음, 금연) 2실 · 조식 포함</b> · 2박 " + won(stay_total(d)) + " (1인 " + won(stay_total(d) // 2) + ")",
          "<b>11/27까지 무료 취소 · 11/26 자동 결제</b> · 결제 카드 한도 확인", d["agoda"], True),
@@ -603,7 +603,7 @@ transport = """
       <div class="end"><div class="code">ICN</div><div class="time">17:40</div><div class="city">인천 제2터미널</div></div>
     </div>
     <div class="perf"></div>
-    <div class="row"><span class="small muted"><b>예약 완료 · 발권 중</b> · 왕복 2명 · 세금 포함<br>1인 ₩210,942 (예약 전 조회 요금)</span><span class="num" style="font-size:20px;font-weight:600">₩421,884</span></div>
+    <div class="row"><span class="small muted"><b>발권 완료 · CONFIRMED</b> · 왕복 2명 · 세금 포함<br>1인 ₩210,942 (예약 전 조회 요금)</span><span class="num" style="font-size:20px;font-weight:600">₩421,884</span></div>
     <a class="btn secondary" href="/stay#booking">예약 현황 보기</a>
     <p class="tiny"><b>위탁 수하물 미포함 요금</b>으로 예약했어요(기내 수하물만). 기내 수하물 무게·크기 규정은 에어서울에서 확인하세요.</p>
   </div>

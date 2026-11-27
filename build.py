@@ -802,12 +802,60 @@ ITEMS = [
     ("도미인은 청소 없는 요금 · 수건·어메니티는 프런트에 요청", "p24"),
     ("연계버스 동계 시간표 확인", "p11"), ("11/22쯤부터 요나고 주간 예보 확인", "p21"), ("여행자 보험", "p12"),
 ]
+PERSONAL = [
+    ("세면 & 세안", [
+        ("클렌징 오일 · 클렌징 폼", "q1"),
+        ("제로이드 보습제 - 용량이 100ml를 넘으면 기내 반입이 안 돼요", "q2"),
+        ("치약 · 칫솔", "q3"),
+        ("여행용 펌핑 용기 - 아래 액체류 규정 때문에 꼭 필요해요", "q4"),
+    ]),
+    ("몸단장", [
+        ("면도기", "q5"),
+        ("왁스", "q6"),
+        ("썬쿠션 - 바닷가 · 섬 바람에 겨울에도 햇볕이 꽤 세요", "q7"),
+    ]),
+    ("옷 & 신발", [
+        ("속옷 · 양말 - 3박이라 4벌씩이면 넉넉해요", "q8"),
+        ("잘 때 입을 옷", "q9"),
+        ("반바지 · 츄리닝 바지", "q10"),
+        ("크록스 - 숙소 · 온천용. 걷는 신발은 따로 신으세요", "q11"),
+    ]),
+    ("약 & 전자", [
+        ("당뇨약 - 아래 반입 규정 확인", "q12"),
+        ("기타 상비약 - 소화제 · 해열진통제 · 지사제 · 밴드", "q13"),
+        ("충전기 · 보조배터리 (보조배터리는 기내 수하물로만)", "q14"),
+        ("건전지 - 쓰는 기기에 맞는 크기로 여분 챙기기", "q17"),
+        ("멀티어댑터 - 일본은 100V · 2핀 A타입", "q15"),
+    ]),
+]
+N_ALL = len(ITEMS) + sum(len(v) for _, v in PERSONAL)
+def _checks(items):
+    return ''.join(f'<label for="{i}"><input type="checkbox" id="{i}"><span>{escape(t)}</span></label>' for t, i in items)
+personal_html = ''.join(
+    f'<h3 style="font-size:15px;margin:18px 0 8px">{escape(g)}</h3><div class="card check">{_checks(v)}</div>'
+    for g, v in PERSONAL)
 checklist = f"""
 <section class="section">
   <div class="row"><div><div class="eyebrow">출발 전</div><h2 style="font-size:24px;margin-top:4px">준비물 체크</h2></div>
-  <span class="chip sea num" id="check-progress">0 / {len(ITEMS)}</span></div>
+  <span class="chip sea num" id="check-progress">0 / {N_ALL}</span></div>
   <div class="card check">
-    {''.join(f'<label for="{i}"><input type="checkbox" id="{i}"><span>{escape(t)}</span></label>' for t, i in ITEMS)}
+    {_checks(ITEMS)}
+  </div>
+</section>
+<section class="section">
+  <div class="eyebrow">PACK</div><h2 style="font-size:24px;margin-top:4px">개인 준비물</h2>
+  {personal_html}
+  <div class="card" style="padding:16px;margin-top:18px;font-size:14px;line-height:1.7">
+    <p><b>액체류가 이 목록의 절반이에요.</b> 클렌징 오일 · 클렌징 폼 · 제로이드 · 썬쿠션 · 왁스 · 치약이 전부 액체 · 분무 · 겔류로 잡혀요.
+    이번 항공권은 <b>무료 위탁 수하물이 없어서</b> 기내에 들고 타면 <b>개별 100ml 이하, 합쳐서 1L 이하</b>로 투명 지퍼백 하나에 담아야 해요.
+    큰 통은 두고 펌핑 용기에 소분해 가세요. 제로이드는 100ml 넘는 제품이 많으니 특히 확인하세요.
+    위탁을 부칠 거면 에어서울 앱 · 홈페이지에서 미리 결제해 두는 게 공항보다 싸요.</p>
+    <p style="margin-top:10px"><b>당뇨약은 이렇게 챙기세요.</b> 본인이 쓸 <b>1개월분 이내 처방약</b>은 별도 절차 없이 반입돼요. 다만 세 가지만 지키세요.
+    첫째, <b>약국에서 받은 원래 포장 그대로</b> 가져가기. 둘째, <b>처방전 사본</b> 같이 넣기. 셋째, <b>반드시 기내 수하물</b>에 넣기.
+    주사제나 바늘을 쓰면 <b>영문 소견서</b>를 꼭 받아 가세요 - 보안검색에서 실제로 물어봐요.</p>
+    <p style="margin-top:10px"><b>면도기 · 건전지 · 어댑터.</b> 면도날 단품이나 날이 분리되는 안전면도기는 기내 반입이 막힐 수 있어요 - <b>전기면도기나 일회용 · 카트리지형</b>으로 가져가세요.
+    AA · AAA 같은 일반 건전지는 기내에 들고 타도 되고, 여분은 <b>단자가 닿지 않게</b> 원래 포장이나 지퍼백에 따로 담으세요.
+    일본 콘센트는 <b>100V · 2핀(A타입)</b>이라 돼지코만 있으면 되는데, 기기가 <b>프리볼트(100~240V)</b>인지 한 번 보세요. 220V 전용 기기는 어댑터만으로는 안 돌아가요.</p>
   </div>
   <p class="tiny">체크 상태는 이 기기의 브라우저에만 저장돼요.</p>
 </section>

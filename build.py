@@ -4,6 +4,7 @@
 python3 build.py 를 실행하면 루트에 *.html 파일을 다시 만든다.
 내용(일정·숙소·요금)은 이 파일의 데이터만 고치면 된다.
 """
+from urllib.parse import quote
 from pathlib import Path
 from html import escape
 
@@ -74,6 +75,12 @@ HOTELS = {
         "booked": True,
         "cancel": "예약 완료 · 11/27까지 무료 취소 · 11/26 자동 결제 · 청소 없는 요금이라 2박 동안 객실 청소를 하지 않아요",
         "addr": "498-1 Asahimachi, Matsue (松江市朝日町498-1)",
+        "conv": [("세븐일레븐", "약 50m · 바로 옆 · 24시간", "35.4641199,133.0602557"),
+                 ("로손", "약 130m", "35.4639622,133.0588065"),
+                 ("로손", "약 200m", "35.4640066,133.0622746"),
+                 ("로손", "약 300m", "35.4653421,133.0632126"),
+                 ("패밀리마트", "약 500m", "35.4632351,133.0656628")],
+        "conv_note": "밤늦게 필요한 게 생겨도 바로 옆 세븐일레븐이면 돼요.",
         "access": "마쓰에역에서 도보 약 5분(350m) · 신오하시 상점가 바로 옆 · 이온 마쓰에점 약 850m",
         "score": 8.3, "reviews": 2479, "label": "우수",
         "bars": [("청결도", 8.7), ("서비스", 8.5), ("객실의 안락함", 8.3), ("위치", 8.2)],
@@ -109,6 +116,11 @@ HOTELS = {
         "booked": True,
         "cancel": "예약 완료 · 11/29까지 무료 취소 · 11/28 자동 결제",
         "addr": "125 Meiji-cho, Yonago (米子市明治町125)",
+        "conv": [("세븐일레븐", "요나고역 안 「가이나 로드」 통로 · 도보 1~2분", "35.4229876,133.3360614"),
+                 ("이온 (마트)", "역 앞 이온 요나고에키마에점 · 11/29 ATM 들르는 곳", "イオン米子駅前店"),
+                 ("로손", "약 650m · 도보 8분쯤", "35.4270930,133.3300570"),
+                 ("패밀리마트", "약 700m · 도보 10분쯤", "35.4261097,133.3433537")],
+        "conv_note": "역 안 세븐일레븐은 밤에 일찍 닫을 수 있어요. 필요한 건 저녁에 미리 사 두세요.",
         "access": "요나고역에서 길 건너 도보 약 2분(170m) · 공항 연계버스 7번 승강장과 가까워요",
         "score": 8.1, "reviews": 3292, "label": "우수",
         "bars": [("위치", 8.9), ("서비스", 8.4), ("청결도", 8.2), ("객실의 안락함", 8.0)],
@@ -559,6 +571,13 @@ def hotel_page(key):
       <dt>위치</dt><dd>{escape(h['access'])}</dd>
       <dt>주소</dt><dd>{escape(h['addr'])}</dd>
     </dl>
+  </div>
+</section>
+<section class="section">
+  <div class="section-head"><h2>근처 편의점</h2><span class="tiny">누르면 구글 지도</span></div>
+  <div class="card card-body">
+    <dl class="kv">{''.join(f'<dt>{escape(n)}</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query={quote(q)}" target="_blank" rel="noopener">{escape(d)}</a></dd>' for n, d, q in h.get('conv', []))}</dl>
+    <p class="tiny">{escape(h.get('conv_note', ''))}</p>
   </div>
 </section>
 <section class="section">

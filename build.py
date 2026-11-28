@@ -369,6 +369,16 @@ GUIDE_DAY1 = guide_card(
     "요나고 공항 서울편 연계버스 시간표(2026.03 게시), JR 사카이선 평일 시간표, Agoda 숙소 위치 정보(마쓰에역 350m).",
 )
 
+ALT_DAY1 = """<article class="card card-body guide" id="matsue-bus">
+    <div class="row"><strong>대안 · 공항 → 마쓰에역 직행 버스</strong><span class="chip">갈아타기 없음</span></div>
+    <ol class="timeline">
+      <li class="tl"><span class="t">도착</span><span class="dot"></span><div class="c"><h3>공항 버스 승강장에서 마쓰에행 찾기</h3><p>요나고 기타로 공항 연락버스(米子鬼太郎空港連絡バス)예요. 마쓰에 이치바타 교통과 히노마루 하이어가 같이 운행해요. 비행기 도착에 맞춰 출발하니, 도착 로비 안내판에서 다음 차 시간을 확인하세요.</p><div class="phrase"><span class="jp" lang="ja">松江駅行きのバスはどこから出ますか？</span><span class="ko">마쓰에역 가는 버스는 어디서 타나요?</span></div></div></li>
+      <li class="tl key"><span class="t">45분</span><span class="dot"></span><div class="c"><h3>JR 마쓰에역 하차</h3><p>공항 → JR 마쓰에역 직행이고, 약 45분 걸려요. 요금은 약 ¥1,200 현금이에요(예약 사이트 표시, 정가는 확인 못 함). 내리면 도미인까지 도보 약 5분이에요.</p></div></li>
+    </ol>
+    <div class="note"><span class="mk">!</span><span>이 버스로 가면 요나고역 이온 ATM에 들르지 못해요. 엔화 현금은 마쓰에역 근처나 이온 마쓰에점(도미인에서 약 850m)에서 뽑으세요. 서울편 도착에 맞춘 차가 있는지는 확인하지 못했어요. 차가 없거나 너무 늦게 출발하면 위의 기본 경로(7번 연계버스 → 요나고역 → JR)로 가세요.</span></div>
+    <p class="tiny">근거: Jorudan 공항 연락버스 정보(소요 45분, 문의 마쓰에 이치바타 교통 0852-22-3681 · 히노마루 하이어 0859-22-3231), 버스히카쿠 노선 페이지(요금 표시). 정확한 시간과 요금은 현지에서 다시 확인하세요.</p>
+  </article>"""
+
 GUIDE_DAY2 = guide_card(
     "beach-guide", "마쓰에 → 가이케 바닷가 → 돈키호테 → 마쓰에", "11/30",
     [
@@ -441,6 +451,7 @@ day1 = day_tabs("day1") + f"""
   </ol>
   </div>
   {GUIDE_DAY1}
+  {ALT_DAY1}
   {today_stay("dormy", "오늘부터 2박 · 싱글룸 2실")}
 </section>
 """
